@@ -18,6 +18,8 @@ import type { Locale } from '@/lib/i18n/types'
 
 const { Header } = Layout
 const { Text } = Typography
+const loginUrl = 'https://login.vistacast.com'
+const githubUrl = 'https://github.com/VistaCast'
 
 export default function SiteHeader() {
   const { locale, setLocale, messages: t } = useI18n()
@@ -94,6 +96,9 @@ export default function SiteHeader() {
             className="vc-header-login"
             icon={<LoginOutlined />}
             style={{ background: 'transparent', borderColor: 'rgba(255,255,255,0.15)', color: '#dce6f5' }}
+            href={loginUrl}
+            target='_blank'
+            rel='noreferrer'
           >
             <span className="vc-btn-label">{t.nav.login}</span>
           </Button>
@@ -124,8 +129,8 @@ export default function SiteHeader() {
           items={[
             ...drawerItems,
             { type: 'divider' },
-            { key: 'login',  icon: <LoginOutlined />,  label: t.nav.login },
-            { key: 'github', icon: <GithubOutlined />,  label: <a href="https://github.com/VistaCast" target="_blank" rel="noreferrer">{t.nav.github}</a> },
+            { key: 'login',  icon: <LoginOutlined />,  label: <a href={loginUrl} target="_blank" rel="noreferrer">{t.nav.login}</a> },
+            { key: 'github', icon: <GithubOutlined />,  label: <a href={githubUrl} target="_blank" rel="noreferrer">{t.nav.github}</a> },
           ]}
           selectable={false}
           theme="dark"

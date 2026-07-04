@@ -1,4 +1,4 @@
-import type { Messages } from '../types'
+﻿import type { Messages } from '../types'
 
 const ko: Messages = {
   meta: {
@@ -115,7 +115,7 @@ const ko: Messages = {
     deployLabel: '원클릭 로컬 배포',
     tagSetup: '30분 설정',
     tagSovereignty: '데이터 온프레미스 유지',
-    tagLicense: 'MIT License',
+    tagLicense: 'Polyform Noncommercial License',
   },
   features: {
     title: '이벤트 기반 엔진 — 전통적 DVR이 아님',

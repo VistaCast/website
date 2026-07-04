@@ -1,4 +1,4 @@
-import type { Messages } from '../types'
+﻿import type { Messages } from '../types'
 
 const zhCN: Messages = {
   meta: {
@@ -99,7 +99,7 @@ const zhCN: Messages = {
     deployLabel: '一键本地部署',
     tagSetup: '30 min setup',
     tagSovereignty: '数据不出机房',
-    tagLicense: 'MIT License',
+    tagLicense: 'Polyform Noncommercial License',
   },
   features: {
     title: '是事件驱动引擎，而非传统录像机',

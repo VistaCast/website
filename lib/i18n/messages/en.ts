@@ -1,4 +1,4 @@
-import type { Messages } from '../types'
+﻿import type { Messages } from '../types'
 
 const en: Messages = {
   meta: {
@@ -115,7 +115,7 @@ const en: Messages = {
     deployLabel: 'One-click local deploy',
     tagSetup: '30 min setup',
     tagSovereignty: 'Data stays on-prem',
-    tagLicense: 'MIT License',
+    tagLicense: 'Polyform Noncommercial License',
   },
   features: {
     title: 'An event-driven engine — not a traditional DVR',

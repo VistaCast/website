@@ -1,4 +1,4 @@
-import type { Messages } from '../types'
+﻿import type { Messages } from '../types'
 
 const zhTW: Messages = {
   meta: {
@@ -99,7 +99,7 @@ const zhTW: Messages = {
     deployLabel: '一鍵本機部署',
     tagSetup: '30 min setup',
     tagSovereignty: '資料不出機房',
-    tagLicense: 'MIT License',
+    tagLicense: 'Polyform Noncommercial License',
   },
   features: {
     title: '是事件驅動引擎，而非傳統錄影機',

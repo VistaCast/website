@@ -12,6 +12,19 @@ import { useT } from '@/lib/i18n/context'
 const { Title, Paragraph, Text } = Typography
 
 const ECO_NAMES = ['BlockyEdu', 'SyncroBrain', 'DataLuminary', 'VistaCast', 'VistaRemote', 'DoerFlow']
+const ECO_URLS = [
+  'https://blockyedu.com',
+  'https://syncrobrain.com',
+  'https://dataluminary.dev',
+  'https://vistacast.dev',
+  'https://remote.vistacast.dev',
+  'https://doerflow.dev',
+]
+const ECO_synergies_URLS = [
+  'https://dataluminary.dev',
+  'https://syncrobrain.com',
+  'https://remote.vistacast.dev',
+]
 const ECO_COLORS = ['#52c41a', '#1890ff', '#722ed1', '#36cfc9', '#fa8c16', '#eb2f96']
 const SYNERGY_TARGETS = ['DataLuminary BI', 'SyncroBrain IoT', 'VistaRemote']
 const SYNERGY_COLORS = ['#722ed1', '#1890ff', '#fa8c16']
@@ -49,7 +62,7 @@ export default function EcosystemSection() {
             const color = ECO_COLORS[i]
             return (
               <React.Fragment key={ECO_NAMES[i]}>
-                <div
+                <a
                   className={`vc-ecosystem-step${isActive ? ' active' : ''}`}
                   style={{
                     padding: '16px 20px',
@@ -60,7 +73,11 @@ export default function EcosystemSection() {
                     minWidth: 110,
                     transition: 'border-color 0.2s',
                     position: 'relative',
+                    display:'block'
                   }}
+                  href={isActive?'https://vistacast.dev':ECO_URLS[i]}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <Text style={{
                     color: 'rgba(220,230,245,0.45)',
@@ -99,7 +116,7 @@ export default function EcosystemSection() {
                       {t.ecosystem.youAreHere}
                     </div>
                   )}
-                </div>
+                </a>
                 {i < t.ecosystem.products.length - 1 && (
                   <ArrowRightOutlined style={{ color: 'rgba(255,255,255,0.18)', fontSize: 16, flexShrink: 0 }} />
                 )}
@@ -124,14 +141,18 @@ export default function EcosystemSection() {
         <Row gutter={[20, 20]}>
           {t.ecosystem.synergies.map((s, i) => (
             <Col xs={24} md={8} key={SYNERGY_TARGETS[i]}>
-              <div style={{
+              <a style={{
                 padding: '20px 22px',
                 borderRadius: 12,
                 background: 'rgba(11,20,40,0.7)',
                 border: `1px solid ${SYNERGY_COLORS[i]}25`,
                 height: '100%',
                 transition: 'border-color 0.2s',
-              }}>
+                display:'block'
+              }}
+              href={ECO_synergies_URLS[i]}
+              target="_blank"
+              >
                 <Space size={8} style={{ marginBottom: 12 }}>
                   <LinkOutlined style={{ color: SYNERGY_COLORS[i], fontSize: 14 }} />
                   <Tag style={{
@@ -147,7 +168,7 @@ export default function EcosystemSection() {
                 <Paragraph style={{ color: 'rgba(220,230,245,0.65)', fontSize: 13.5, lineHeight: 1.7, margin: 0 }}>
                   {s.desc}
                 </Paragraph>
-              </div>
+              </a>
             </Col>
           ))}
         </Row>

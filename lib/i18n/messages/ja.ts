@@ -1,4 +1,4 @@
-import type { Messages } from '../types'
+﻿import type { Messages } from '../types'
 
 const ja: Messages = {
   meta: {
@@ -115,7 +115,7 @@ const ja: Messages = {
     deployLabel: 'ワンクリックローカルデプロイ',
     tagSetup: '30 分セットアップ',
     tagSovereignty: 'データはオンプレミス',
-    tagLicense: 'MIT License',
+    tagLicense: 'Polyform Noncommercial License',
   },
   features: {
     title: 'イベント駆動エンジン — 従来の DVR ではない',
