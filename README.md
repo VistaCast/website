@@ -24,7 +24,7 @@ npx wrangler pages deploy out --project-name=vistacast-website --branch=master -
 
 推送到 **`master`**（或在 Actions 页手动 **Run workflow**）会自动构建并更新 Cloudflare Pages 生产环境。
 
-在仓库 **Settings → Secrets and variables → Actions** 配置：
+在组织 **[VistaCast → Actions secrets](https://github.com/organizations/VistaCast/settings/secrets/actions)**（或本仓库 Secrets）配置，且对 `website` 仓可见：
 
 | Secret | 说明 |
 | :--- | :--- |
@@ -32,6 +32,8 @@ npx wrangler pages deploy out --project-name=vistacast-website --branch=master -
 | `CLOUDFLARE_ACCOUNT_ID` | `af0e854078b49637d63673c75566906b` |
 
 域名、DNS、`*.pages.dev` 重定向等在 Cloudflare Dashboard 维护，CI 只负责静态资源部署。
+
+文档站 `docs/` 在 Meta 仓 **vistacast**，由 GitHub Pages 自动部署（见 Meta `.github/workflows/docs.yml`），与本仓无关。
 
 ## v0
 
