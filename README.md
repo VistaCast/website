@@ -1,33 +1,38 @@
-# vistacast-marketing-website
+# VistaCast Marketing Website
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [v0](https://v0.app).
+Next.js 静态官网，部署至 Cloudflare Pages 项目 `vistacast-website`，生产域名 [vistacast.dev](https://vistacast.dev)。
 
-## Built with v0
-
-This repository is linked to a [v0](https://v0.app) project. You can continue developing by visiting the link below -- start new chats to make changes, and v0 will push commits directly to this repo. Every merge to `main` will automatically deploy.
-
-[Continue working on v0 →](https://v0.app/chat/projects/prj_ge4XqUXgXpRxNMgEXe1ammQKu8Tj)
-
-## Getting Started
-
-First, run the development server:
+## 开发
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+pnpm install
+pnpm dev          # http://localhost:13107
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 手动部署（本地）
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+# PowerShell
+$env:NODE_ENV="production"
+pnpm build
+npx wrangler pages deploy out --project-name=vistacast-website --branch=master --commit-dirty=true
+```
 
-## Learn More
+生产分支必须是 **`master`**（与本仓默认分支一致）。
 
-To learn more, take a look at the following resources:
+## GitHub Actions 自动部署
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-- [v0 Documentation](https://v0.app/docs) - learn about v0 and how to use it.
+推送到 **`master`**（或在 Actions 页手动 **Run workflow**）会自动构建并更新 Cloudflare Pages 生产环境。
+
+在仓库 **Settings → Secrets and variables → Actions** 配置：
+
+| Secret | 说明 |
+| :--- | :--- |
+| `CLOUDFLARE_API_TOKEN` | Cloudflare API Token（权限：Account → Cloudflare Pages → Edit） |
+| `CLOUDFLARE_ACCOUNT_ID` | `af0e854078b49637d63673c75566906b` |
+
+域名、DNS、`*.pages.dev` 重定向等在 Cloudflare Dashboard 维护，CI 只负责静态资源部署。
+
+## v0
+
+本仓库关联 [v0 项目](https://v0.app/chat/projects/prj_ge4XqUXgXpRxNMgEXe1ammQKu8Tj)，可在 v0 中继续迭代 UI。
