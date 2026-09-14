@@ -10,7 +10,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "pages:deploy": "wrangler pages deploy out --project-name=vistacast-website --branch=master --commit-dirty=true"
+    "pages:deploy": "wrangler pages deploy out --project-name=vistacast-website --branch=main --commit-dirty=true"
   },
   "dependencies": {
     "@ant-design/icons": "^6.3.1",
@@ -28,7 +28,7 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.2.0",
-    "@types/node": "^24.0.0",
+    "@types/node": "^24",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "postcss": "^8.5",
