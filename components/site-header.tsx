@@ -28,10 +28,10 @@ export default function SiteHeader() {
   const current = LOCALES.find((l) => l.key === locale) ?? LOCALES[0]
 
   const navLinks = [
-    { key: 'architecture', href: '#architecture', label: t.nav.architecture },
-    { key: 'plugins',      href: '#plugins',      label: t.nav.plugins },
-    { key: 'techstack',    href: '#techstack',    label: t.nav.techstack },
-    { key: 'roadmap',      href: '#roadmap',      label: t.nav.roadmap },
+    { key: 'architecture', href: '/#architecture', label: t.nav.architecture },
+    { key: 'plugins',      href: '/#plugins',      label: t.nav.plugins },
+    { key: 'techstack',    href: '/#techstack',    label: t.nav.techstack },
+    { key: 'roadmap',      href: '/#roadmap',      label: t.nav.roadmap },
     { key: 'download',     href: '/download',    label: t.nav.download },
   ]
 
@@ -68,7 +68,7 @@ export default function SiteHeader() {
           justifyContent: 'space-between',
         }}
       >
-        <a href="#" style={{ display: 'flex', textDecoration: 'none', flexShrink: 0 }}>
+        <a href="/" style={{ display: 'flex', textDecoration: 'none', flexShrink: 0 }}>
           <BrandLogo size={34} />
         </a>
 
