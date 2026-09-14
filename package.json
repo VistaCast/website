@@ -9,7 +9,8 @@
     "dev:clean": "pnpm clean && pnpm dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "pages:deploy": "wrangler pages deploy out --project-name=vistacast-website --branch=master --commit-dirty=true"
   },
   "dependencies": {
     "@ant-design/icons": "^6.3.1",

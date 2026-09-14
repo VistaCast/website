@@ -14,6 +14,7 @@ const zhCN: Messages = {
     plugins: '行业插件',
     techstack: '技术栈与极客生态',
     roadmap: '路线图',
+    download: '下载',
     login: '登录',
     github: 'GitHub',
   },

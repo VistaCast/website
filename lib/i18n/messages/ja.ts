@@ -15,6 +15,7 @@ const ja: Messages = {
     plugins: '業界プラグイン',
     techstack: '技術スタックとエコシステム',
     roadmap: 'ロードマップ',
+    download: 'ダウンロード',
     login: 'ログイン',
     github: 'GitHub',
   },

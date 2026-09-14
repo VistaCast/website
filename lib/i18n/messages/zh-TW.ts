@@ -14,6 +14,7 @@ const zhTW: Messages = {
     plugins: '產業外掛',
     techstack: '技術棧與極客生態',
     roadmap: '路線圖',
+    download: '下載',
     login: '登入',
     github: 'GitHub',
   },

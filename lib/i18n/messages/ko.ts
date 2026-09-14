@@ -15,6 +15,7 @@ const ko: Messages = {
     plugins: '산업 플러그인',
     techstack: '기술 스택 및 생태계',
     roadmap: '로드맵',
+    download: '다운로드',
     login: '로그인',
     github: 'GitHub',
   },

@@ -15,6 +15,7 @@ const nl: Messages = {
     plugins: 'Branchespecifieke plugins',
     techstack: 'Tech stack & ecosysteem',
     roadmap: 'Roadmap',
+    download: 'Download',
     login: 'Inloggen',
     github: 'GitHub',
   },

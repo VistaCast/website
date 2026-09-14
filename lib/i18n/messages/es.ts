@@ -15,6 +15,7 @@ const es: Messages = {
     plugins: 'Plugins sectoriales',
     techstack: 'Stack tecnológico y ecosistema',
     roadmap: 'Hoja de ruta',
+    download: 'Descargar',
     login: 'Iniciar sesión',
     github: 'GitHub',
   },

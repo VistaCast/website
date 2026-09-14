@@ -15,6 +15,7 @@ const en: Messages = {
     plugins: 'Industry Plugins',
     techstack: 'Tech Stack & Ecosystem',
     roadmap: 'Roadmap',
+    download: 'Download',
     login: 'Sign In',
     github: 'GitHub',
   },

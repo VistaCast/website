@@ -32,6 +32,7 @@ export default function SiteHeader() {
     { key: 'plugins',      href: '#plugins',      label: t.nav.plugins },
     { key: 'techstack',    href: '#techstack',    label: t.nav.techstack },
     { key: 'roadmap',      href: '#roadmap',      label: t.nav.roadmap },
+    { key: 'download',     href: '/download',    label: t.nav.download },
   ]
 
   const drawerItems: MenuProps['items'] = navLinks.map((link) => ({

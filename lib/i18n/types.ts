@@ -56,6 +56,7 @@ export interface Messages {
     plugins: string
     techstack: string
     roadmap: string
+    download: string
     login: string
     github: string
   }
