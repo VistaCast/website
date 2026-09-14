@@ -2,7 +2,7 @@ name: Deploy to Cloudflare Pages
 
 on:
   push:
-    branches: [master]
+    branches: [main, master, dev]
   workflow_dispatch:
 
 concurrency:
@@ -40,4 +40,4 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy out --project-name=vistacast-website --branch=master
+          command: pages deploy out --project-name=vistacast-website --branch=main
