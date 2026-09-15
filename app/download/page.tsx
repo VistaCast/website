@@ -1,5 +1,6 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import { ConfigProvider, theme, Button, Typography, Space, Alert } from 'antd'
 import { DownloadOutlined, AndroidOutlined, WindowsOutlined, AppleOutlined } from '@ant-design/icons'
 import Link from 'next/link'
@@ -17,17 +18,19 @@ const TOKEN = {
   fontFamily: "'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif",
 }
 
-const RELEASE_VERSION = process.env.NEXT_PUBLIC_RELEASE_VERSION ?? '0.1.0'
 const RELEASE_BASE =
   process.env.NEXT_PUBLIC_RELEASE_BASE ??
   'https://github.com/VistaCast/downloads/releases/latest/download'
 
-const WIN_SETUP = `${RELEASE_BASE}/VistaCast-${RELEASE_VERSION}-win-setup.exe`
-const WIN_PORTABLE = `${RELEASE_BASE}/VistaCast-${RELEASE_VERSION}-win.exe`
-const MAC_DMG = `${RELEASE_BASE}/VistaCast-${RELEASE_VERSION}-mac.dmg`
+const WIN_SETUP = `${RELEASE_BASE}/VistaCast-win-setup.exe`
+const WIN_PORTABLE = `${RELEASE_BASE}/VistaCast-win.exe`
+const MAC_DMG = `${RELEASE_BASE}/VistaCast-mac.dmg`
 const ANDROID_APK =
-  process.env.NEXT_PUBLIC_ANDROID_APK_URL ??
-  `${RELEASE_BASE}/VistaCast-${RELEASE_VERSION}.apk`
+  process.env.NEXT_PUBLIC_ANDROID_APK_URL ?? `${RELEASE_BASE}/VistaCast.apk`
+
+const DOWNLOADS_API =
+  process.env.NEXT_PUBLIC_DOWNLOADS_API ??
+  'https://api.github.com/repos/VistaCast/downloads/releases/latest'
 
 const sectionStyle = {
   background: '#0c1a35',
@@ -37,6 +40,22 @@ const sectionStyle = {
 } as const
 
 export default function DownloadPage() {
+  const [versionLabel, setVersionLabel] = useState<string | null>(null)
+
+  useEffect(() => {
+    let cancelled = false
+    fetch(DOWNLOADS_API)
+      .then((r) => (r.ok ? r.json() : null))
+      .then((data: { tag_name?: string } | null) => {
+        if (cancelled || !data?.tag_name) return
+        setVersionLabel(data.tag_name.replace(/^v/, ''))
+      })
+      .catch(() => {})
+    return () => {
+      cancelled = true
+    }
+  }, [])
+
   return (
     <I18nProvider>
       <ConfigProvider theme={{ algorithm: theme.darkAlgorithm, token: TOKEN }}>
@@ -46,7 +65,8 @@ export default function DownloadPage() {
             下载 VistaCast
           </Typography.Title>
           <Typography.Paragraph style={{ color: 'rgba(220,230,245,0.65)', fontSize: 16 }}>
-            v{RELEASE_VERSION}：门店工作站 Windows / macOS，以及 Android 侧载 APK（可选）。
+            {versionLabel ? `当前最新 ${versionLabel}：` : ''}
+            门店工作站 Windows / macOS，以及 Android 侧载 APK（可选）。按钮始终指向最新安装包。
           </Typography.Paragraph>
           <Typography.Paragraph style={{ color: 'rgba(220,230,245,0.55)', fontSize: 14 }}>
             安装包托管在公开仓库{' '}
