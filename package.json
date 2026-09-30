@@ -13,9 +13,9 @@
     "pages:deploy": "wrangler pages deploy out --project-name=vistacast-website --branch=master --commit-dirty=true"
   },
   "dependencies": {
-    "@ant-design/icons": "^6.3.1",
+    "@ant-design/icons": "^6.3.4",
     "@base-ui/react": "^1.5.0",
-    "antd": "^6.4.5",
+    "antd": "^6.6.5",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^1.16.0",
@@ -33,9 +33,10 @@
     "@types/react-dom": "^19",
     "postcss": "^8.5",
     "tailwindcss": "^4.2.0",
-    "typescript": "5.7.3"
+    "typescript": "6.0.3"
   },
   "engines": {
-    "node": ">=24.0.0"
+    "node": ">=24.0.0",
+    "pnpm": ">=11"
   }
 }

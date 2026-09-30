@@ -4,7 +4,7 @@ const zhCN: Messages = {
   meta: {
     title: 'VistaCast · 视界云遥 — 插件化 AI 摄像头云监控平台',
     description:
-      '纯软件 AI 视频流边缘计算平台。WebRTC 毫秒级秒开，兼容存量 RTSP/ONVIF 摄像头，核心引擎 + 热插拔插件架构，全栈 TypeScript/Rust 二开，面向 Vibe Coding 时代。',
+      '纯软件 AI 视频流边缘平台。预览走 WebRTC，兼容存量 RTSP/ONVIF。延迟不是已承诺的毫秒 SLA。',
     ogTitle: 'VistaCast · 视界云遥',
     ogDescription: '插件化 AI 摄像头云监控平台，WebRTC 低延迟，全栈 TypeScript/Rust 二开友好',
   },
@@ -25,7 +25,7 @@ const zhCN: Messages = {
     titleGradient: 'WebRTC 超低延时监控',
     tagline: '让每一路摄像头，成为物理世界的结构化数据流',
     description:
-      '纯软件 AI 视频流边缘计算平台。无需更换硬件，兼容存量 RTSP/ONVIF 设备，通过 WebRTC 协议实现低延迟、毫秒级秒开预览。基于首创的「核心引擎 + 热插拔插件」架构，支持全栈 TypeScript/Rust 二开，面向 Vibe Coding 时代而生。',
+      '纯软件 AI 视频流边缘平台。兼容存量 RTSP/ONVIF。预览走 WebRTC，失败可回 JPEG。不是已承诺的毫秒 SLA。',
     ctaPrimary: '预约商业试点',
     ctaSecondary: 'Github文档',
     archCanvas: 'Architecture Canvas',
@@ -35,12 +35,12 @@ const zhCN: Messages = {
     inputSource: 'Input Source',
   },
   plugins: {
-    retail: { name: '商业零售', status: '已落地 (客流/排队)' },
-    warehouse: { name: '仓储物流', status: '已落地 (夜间防盗)' },
-    industrial: { name: '工业安全', status: '社区规划 (烟雾/跌倒)' },
-    legendDeployed: '已商业落地',
-    legendPlanned: '社区规划中',
-    legendLatency: '<500ms WebRTC 延迟',
+    retail: { name: '商业零售', status: '试点可演示（客流阈值）' },
+    warehouse: { name: '仓储物流', status: '试点可演示（夜间入侵）' },
+    industrial: { name: '工业安全', status: '试点可演示（跌倒/烟雾桩，不是 F1）' },
+    legendDeployed: '试点可演示（未售）',
+    legendPlanned: '实验室壳（不是 F1）',
+    legendLatency: '仅信令；媒体不是已售 SLA',
   },
   strategy: {
     title: '战略聚焦，用「场景插件」兼顾生存与星辰大海',
@@ -55,20 +55,34 @@ const zhCN: Messages = {
       {
         tag: '行业级方案',
         scene: '奶茶 / 快餐 / 连锁门店',
-        capabilities: ['客流计数与时段对比', '收银台排队时长检测', '高峰期实时预警推送', '单店 ROI 报表自动生成'],
-        goal: '帮客户提升单店 ROI，帮团队快速回款',
+        capabilities: ['客流阈值与时段对比（实验室）', '不是收银台排队检测', '不是单店 ROI 报表', '不是已售零售 SKU'],
+        goal: '演示门店客流试点。不是计数模型，不是已售。',
       },
       {
-        tag: '政企覆盖',
-        scene: '工业园区 / 无人仓库',
-        capabilities: ['陌生人脸白名单鉴权', '夜间异动实时告警', '禁区越界检测', '安防事件结构化存档'],
-        goal: '满足刚需安防需求，实现高客单价交付',
+        tag: '试点可演示',
+        scene: '仓储夜间 / 园区周界',
+        capabilities: ['夜间入侵日程 22:00–06:00（实验室）', '不是人脸白名单', '不是已售安防', '不是 24/7 SLA'],
+        goal: '仓储夜间包是实验室壳。不是 F1。',
       },
       {
-        tag: '强大AI扩展能力',
-        scene: '制造车间 / 明火易燃区 / 农业养殖',
-        capabilities: ['未授权闯入检测', '跌倒 / 摔倒行为识别', '烟雾与明火感知', '开源社区第三方模型接入'],
-        goal: '通过开源社区与第三方模型插件低成本扩展',
+        tag: '试点可演示',
+        scene: '工厂危险区',
+        capabilities: ['跌倒与烟雾类型复用（桩）', '不是明火检测', '不是 F1', '不是已售 EHS'],
+        goal: '工厂危险区是实验室壳。不是新模型。',
+      },
+      {
+        tab: '居家（试点）',
+        tag: '试点',
+        scene: '居家安全 / 看护',
+        capabilities: ['复用跌倒与夜间入侵', '不是自动急救电话', '不是儿童检测器', '不是 24/7 看护 SLA'],
+        goal: '居家与看护包是实验室模板，没有生产权重。',
+      },
+      {
+        tab: '周界（试点）',
+        tag: '试点',
+        scene: '园区周界 / 摄像头离线',
+        capabilities: ['周界复用入侵', '离线复用 device.offline', '不是 24/7 在线 SLA', '不是已售安防 SKU'],
+        goal: '周界与离线看护是获客壳，不是 F1。',
       },
     ],
   },
@@ -79,12 +93,12 @@ const zhCN: Messages = {
       {
         title: '核心流媒体网关',
         description:
-          '高性能视频流解复用与 WebRTC 转发，内存占用极小，边缘端超低功耗运行。零 GC 暂停，毫秒级延迟保证。',
+          '高性能视频流解复用与 WebRTC 转发。延迟取决于网络与摄像头，不是已承诺的毫秒 SLA。',
       },
       {
         title: '企业级业务内核',
         description:
-          '与前端语言高度统一。清晰的模块化架构，AI 提示词理解度高达 95% 以上，助您用 Vibe Coding 几分钟内糊出一个自定义行业插件。',
+          '与前端语言高度统一。模块边界清楚，方便用 AI 改插件。不保证提示词理解率。',
       },
       {
         title: '高可靠数据底座',
@@ -94,7 +108,7 @@ const zhCN: Messages = {
       {
         title: '零延迟实时感知',
         description:
-          '告别传统 3–5 秒的高延迟视频流，实现跨平台无插件 <500ms 纯净秒开体验。端到端加密，天然防劫持。',
+          '预览走 P2P-first WebRTC，失败可回 JPEG。不是已承诺的 500ms SLA，也不是云端转发。',
       },
     ],
     deployLabel: '一键本地部署',
@@ -108,7 +122,7 @@ const zhCN: Messages = {
     items: [
       {
         title: '零硬件更换成本',
-        description: '存量海康 / 大华 / 普通网络摄像头即插即用，兼容所有 ONVIF/RTSP 设备，利旧率 100%。',
+        description: '兼容存量 ONVIF/RTSP 摄像头。不是每一台都能接入，不是 100% 利旧。',
       },
       {
         title: '开放式规则引擎',

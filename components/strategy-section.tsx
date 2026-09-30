@@ -6,6 +6,8 @@ import {
   ShopOutlined,
   SafetyCertificateOutlined,
   AlertOutlined,
+  HomeOutlined,
+  VideoCameraOutlined,
   CheckCircleOutlined,
   ClockCircleOutlined,
 } from '@ant-design/icons'
@@ -19,16 +21,18 @@ const SCENARIO_ICONS = [
   <ShopOutlined style={{ fontSize: 28, color: '#1890ff' }} key="shop" />,
   <SafetyCertificateOutlined style={{ fontSize: 28, color: '#36cfc9' }} key="safety" />,
   <AlertOutlined style={{ fontSize: 28, color: '#faad14' }} key="alert" />,
+  <HomeOutlined style={{ fontSize: 28, color: '#b37feb' }} key="home" />,
+  <VideoCameraOutlined style={{ fontSize: 28, color: '#73d13d' }} key="camera" />,
 ]
 
-const SCENARIO_COLORS = ['#1890ff', '#36cfc9', '#faad14']
-const SCENARIO_TAG_COLORS = ['blue', 'cyan', 'gold']
+const SCENARIO_COLORS = ['#1890ff', '#36cfc9', '#faad14', '#b37feb', '#73d13d']
+const SCENARIO_TAG_COLORS = ['blue', 'cyan', 'gold', 'purple', 'green']
 
 function ScenarioPanel({ s, index }: { s: ScenarioMessages; index: number }) {
   const t = useT()
-  const goalColor = SCENARIO_COLORS[index]
-  const icon = SCENARIO_ICONS[index]
-  const tagColor = SCENARIO_TAG_COLORS[index]
+  const goalColor = SCENARIO_COLORS[index % SCENARIO_COLORS.length]
+  const icon = SCENARIO_ICONS[index % SCENARIO_ICONS.length]
+  const tagColor = SCENARIO_TAG_COLORS[index % SCENARIO_TAG_COLORS.length]
 
   return (
     <Row gutter={[32, 32]} align="middle">
@@ -115,38 +119,20 @@ export default function StrategySection() {
           defaultActiveKey="0"
           size="large"
           type="line"
-          items={[
-            {
-              key: '0',
-              label: (
-                <Space>
-                  <ShopOutlined />
-                  <span>{t.strategy.tabRetail}</span>
-                </Space>
-              ),
-              children: <ScenarioPanel s={t.strategy.scenarios[0]} index={0} />,
-            },
-            {
-              key: '1',
-              label: (
-                <Space>
-                  <SafetyCertificateOutlined />
-                  <span>{t.strategy.tabWarehouse}</span>
-                </Space>
-              ),
-              children: <ScenarioPanel s={t.strategy.scenarios[1]} index={1} />,
-            },
-            {
-              key: '2',
-              label: (
-                <Space>
-                  <AlertOutlined />
-                  <span>{t.strategy.tabIndustrial}</span>
-                </Space>
-              ),
-              children: <ScenarioPanel s={t.strategy.scenarios[2]} index={2} />,
-            },
-          ]}
+          items={t.strategy.scenarios.map((scenario, index) => ({
+            key: String(index),
+            label: (
+              <Space>
+                {SCENARIO_ICONS[index % SCENARIO_ICONS.length]}
+                <span>
+                  {scenario.tab ??
+                    [t.strategy.tabRetail, t.strategy.tabWarehouse, t.strategy.tabIndustrial][index] ??
+                    scenario.scene}
+                </span>
+              </Space>
+            ),
+            children: <ScenarioPanel s={scenario} index={index} />,
+          }))}
         />
       </div>
     </section>

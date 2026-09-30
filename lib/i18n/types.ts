@@ -12,6 +12,8 @@ export type Locale =
 export interface ScenarioMessages {
   tag: string
   scene: string
+  /** Tab label. When omitted, the first three use strategy.tabRetail / tabWarehouse / tabIndustrial. */
+  tab?: string
   capabilities: string[]
   goal: string
 }
