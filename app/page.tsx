@@ -1,20 +1,38 @@
 'use client'
 
 import React from 'react'
-import { ConfigProvider, Layout, FloatButton, theme } from 'antd'
-import { UpOutlined } from '@ant-design/icons'
+import dynamic from 'next/dynamic'
+import { ConfigProvider, Layout, theme } from 'antd'
 
 import { I18nProvider } from '@/lib/i18n/context'
 
-import SiteHeader        from '@/components/site-header'
-import HeroSection       from '@/components/hero-section'
-import StrategySection   from '@/components/strategy-section'
-import TechStackSection  from '@/components/techstack-section'
-import FeaturesSection   from '@/components/features-section'
-import EcosystemSection  from '@/components/ecosystem-section'
-import ComparisonSection from '@/components/comparison-section'
-import CTASection        from '@/components/cta-section'
-import SiteFooter        from '@/components/site-footer'
+import SiteHeader from '@/components/site-header'
+import HeroSection from '@/components/hero-section'
+
+const StrategySection = dynamic(() => import('@/components/strategy-section'), {
+  ssr: true,
+})
+const TechStackSection = dynamic(() => import('@/components/techstack-section'), {
+  ssr: true,
+})
+const FeaturesSection = dynamic(() => import('@/components/features-section'), {
+  ssr: true,
+})
+const EcosystemSection = dynamic(() => import('@/components/ecosystem-section'), {
+  ssr: true,
+})
+const ComparisonSection = dynamic(() => import('@/components/comparison-section'), {
+  ssr: true,
+})
+const CTASection = dynamic(() => import('@/components/cta-section'), {
+  ssr: true,
+})
+const SiteFooter = dynamic(() => import('@/components/site-footer'), {
+  ssr: true,
+})
+const BackTopButton = dynamic(() => import('@/components/back-top-button'), {
+  ssr: false,
+})
 
 const { Content } = Layout
 
@@ -90,30 +108,18 @@ export default function VistaCastPage() {
       <Layout style={{ minHeight: '100vh', background: '#070d1a' }}>
         <SiteHeader />
         <Content style={{ background: '#070d1a' }}>
-          {/* S1 — Hero: WebRTC + Architecture Canvas */}
           <HeroSection />
-          {/* S2 — Strategy: Scene Plugins Tabs */}
           <StrategySection />
-          {/* S3 — Tech Stack: Vibe Coding friendly */}
           <TechStackSection />
-          {/* S4 — Core Features: 2×3 grid */}
           <FeaturesSection />
-          {/* S5 — Ecosystem: LuminaryWorks value chain */}
           <EcosystemSection />
-          {/* S6 — Comparison: VistaCast vs VistaRemote */}
           <ComparisonSection />
-          {/* S7 — CTA */}
           <CTASection />
         </Content>
         <SiteFooter />
       </Layout>
 
-      <FloatButton.BackTop
-        className="vc-back-top"
-        icon={<UpOutlined />}
-        style={{ bottom: 40, right: 32 }}
-        visibilityHeight={400}
-      />
+      <BackTopButton />
     </ConfigProvider>
     </I18nProvider>
   )

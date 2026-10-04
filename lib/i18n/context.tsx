@@ -44,20 +44,26 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
     setReady(true)
   }, [])
 
+  const applyDocumentMeta = useCallback((next: Locale) => {
+    const info = getLocaleInfo(next)
+    document.documentElement.lang = info.htmlLang
+    // Keep route-level Metadata titles (e.g. /download); only sync home title for i18n.
+    const path = window.location.pathname.replace(/\/+$/, '') || '/'
+    if (path === '/') {
+      document.title = messages[next].meta.title
+    }
+  }, [])
+
   const setLocale = useCallback((next: Locale) => {
     setLocaleState(next)
     localStorage.setItem(LOCALE_STORAGE_KEY, next)
-    const info = getLocaleInfo(next)
-    document.documentElement.lang = info.htmlLang
-    document.title = messages[next].meta.title
-  }, [])
+    applyDocumentMeta(next)
+  }, [applyDocumentMeta])
 
   useEffect(() => {
     if (!ready) return
-    const info = getLocaleInfo(locale)
-    document.documentElement.lang = info.htmlLang
-    document.title = messages[locale].meta.title
-  }, [locale, ready])
+    applyDocumentMeta(locale)
+  }, [locale, ready, applyDocumentMeta])
 
   const value = useMemo<I18nContextValue>(
     () => ({
@@ -69,7 +75,11 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
     [locale, setLocale],
   )
 
-  return <I18nContext.Provider value={value}>{children}</I18nContext.Provider>
+  return (
+    <I18nContext.Provider value={value}>
+      {children}
+    </I18nContext.Provider>
+  )
 }
 
 export function useI18n(): I18nContextValue {

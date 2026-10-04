@@ -14,6 +14,8 @@ export interface ScenarioMessages {
   scene: string
   /** Tab label. When omitted, the first three use strategy.tabRetail / tabWarehouse / tabIndustrial. */
   tab?: string
+  /** One line under the section title. Changes with the active tab. */
+  lead?: string
   capabilities: string[]
   goal: string
 }
@@ -61,6 +63,7 @@ export interface Messages {
     download: string
     login: string
     github: string
+    docs: string
   }
   header: {
     drawerTitle: string
@@ -78,11 +81,15 @@ export interface Messages {
     coreEngine: string
     pluginPipeline: string
     inputSource: string
+    coreTitle: string
+    coreNote: string
   }
   plugins: {
+    kicker: string
     retail: { name: string; status: string }
     warehouse: { name: string; status: string }
     industrial: { name: string; status: string }
+    aoi: { name: string; status: string }
     legendDeployed: string
     legendPlanned: string
     legendLatency: string

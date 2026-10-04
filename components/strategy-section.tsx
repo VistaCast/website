@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Row, Col, Typography, Tabs, Tag, Space, List } from 'antd'
 import {
   ShopOutlined,
@@ -10,6 +10,7 @@ import {
   VideoCameraOutlined,
   CheckCircleOutlined,
   ClockCircleOutlined,
+  ExperimentOutlined,
 } from '@ant-design/icons'
 
 import { useT } from '@/lib/i18n/context'
@@ -18,15 +19,16 @@ import type { ScenarioMessages } from '@/lib/i18n/types'
 const { Title, Text } = Typography
 
 const SCENARIO_ICONS = [
-  <ShopOutlined style={{ fontSize: 28, color: '#1890ff' }} key="shop" />,
-  <SafetyCertificateOutlined style={{ fontSize: 28, color: '#36cfc9' }} key="safety" />,
-  <AlertOutlined style={{ fontSize: 28, color: '#faad14' }} key="alert" />,
-  <HomeOutlined style={{ fontSize: 28, color: '#b37feb' }} key="home" />,
-  <VideoCameraOutlined style={{ fontSize: 28, color: '#73d13d' }} key="camera" />,
+  <ShopOutlined style={{ fontSize: 16, color: '#1890ff' }} key="shop" />,
+  <SafetyCertificateOutlined style={{ fontSize: 16, color: '#36cfc9' }} key="warehouse" />,
+  <ExperimentOutlined style={{ fontSize: 16, color: '#597ef7' }} key="aoi" />,
+  <AlertOutlined style={{ fontSize: 16, color: '#faad14' }} key="factory" />,
+  <HomeOutlined style={{ fontSize: 16, color: '#b37feb' }} key="home" />,
+  <VideoCameraOutlined style={{ fontSize: 16, color: '#73d13d' }} key="site" />,
 ]
 
-const SCENARIO_COLORS = ['#1890ff', '#36cfc9', '#faad14', '#b37feb', '#73d13d']
-const SCENARIO_TAG_COLORS = ['blue', 'cyan', 'gold', 'purple', 'green']
+const SCENARIO_COLORS = ['#1890ff', '#36cfc9', '#597ef7', '#faad14', '#b37feb', '#73d13d']
+const SCENARIO_TAG_COLORS = ['blue', 'cyan', 'geekblue', 'gold', 'purple', 'green']
 
 function ScenarioPanel({ s, index }: { s: ScenarioMessages; index: number }) {
   const t = useT()
@@ -101,22 +103,51 @@ function ScenarioPanel({ s, index }: { s: ScenarioMessages; index: number }) {
   )
 }
 
+const TAB_INTERVAL_MS = 4000
+
 export default function StrategySection() {
   const t = useT()
+  const count = t.strategy.scenarios.length
+  const [active, setActive] = useState('0')
+  const [paused, setPaused] = useState(false)
+
+  useEffect(() => {
+    if (paused || count < 2) return
+    const id = window.setInterval(() => {
+      setActive((current) => String((Number(current) + 1) % count))
+    }, TAB_INTERVAL_MS)
+    return () => window.clearInterval(id)
+  }, [paused, count, active])
 
   return (
-    <section className="vc-section-alt" id="plugins">
+    <section
+      className="vc-section-alt vc-defer-paint"
+      id="plugins"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+      onFocusCapture={() => setPaused(true)}
+      onBlurCapture={() => setPaused(false)}
+      onTouchStart={() => setPaused(true)}
+    >
       <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 24px' }}>
         <Title level={2} className="vc-section-title" style={{ color: '#dce6f5', fontWeight: 800, fontSize: 'clamp(22px,3vw,36px)' }}>
           {t.strategy.title}
         </Title>
-        <Text className="vc-section-subtitle" style={{ color: 'rgba(220,230,245,0.6)', fontSize: 15, lineHeight: 1.7 }}>
-          {t.strategy.subtitle}
+        <Text
+          key={active}
+          className="vc-section-subtitle vc-strategy-lead"
+          style={{ color: 'rgba(220,230,245,0.6)', fontSize: 15, lineHeight: 1.7 }}
+          aria-live="polite"
+        >
+          {t.strategy.scenarios[Number(active)]?.lead ??
+            t.strategy.scenarios[Number(active)]?.goal ??
+            t.strategy.subtitle}
         </Text>
 
         <Tabs
           className="vc-strategy-tabs"
-          defaultActiveKey="0"
+          activeKey={active}
+          onChange={setActive}
           size="large"
           type="line"
           items={t.strategy.scenarios.map((scenario, index) => ({

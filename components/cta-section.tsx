@@ -16,7 +16,7 @@ export default function CTASection() {
   const t = useT()
 
   return (
-    <section className="vc-cta-section" id="cta">
+    <section className="vc-cta-section vc-defer-paint" id="cta">
       <div style={{ maxWidth: 800, margin: '0 auto', padding: '0 24px', textAlign: 'center', position: 'relative', zIndex: 1 }}>
         <Tag
           color="cyan"

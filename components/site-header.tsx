@@ -9,6 +9,7 @@ import {
   LoginOutlined,
   CheckOutlined,
   GithubOutlined,
+  ReadOutlined,
 } from '@ant-design/icons'
 
 import BrandLogo from '@/components/brand-logo'
@@ -20,24 +21,39 @@ const { Header } = Layout
 const { Text } = Typography
 const loginUrl = 'https://login.vistacast.com'
 const githubUrl = 'https://github.com/VistaCast'
+const docsUrl = 'https://docs.vistacast.dev'
 
 export default function SiteHeader() {
   const { locale, setLocale, messages: t } = useI18n()
   const [drawerOpen, setDrawerOpen] = useState(false)
+  const [drawerMounted, setDrawerMounted] = useState(false)
 
   const current = LOCALES.find((l) => l.key === locale) ?? LOCALES[0]
+
+  const openDrawer = () => {
+    setDrawerMounted(true)
+    setDrawerOpen(true)
+  }
 
   const navLinks = [
     { key: 'architecture', href: '/#architecture', label: t.nav.architecture },
     { key: 'plugins',      href: '/#plugins',      label: t.nav.plugins },
     { key: 'techstack',    href: '/#techstack',    label: t.nav.techstack },
-    { key: 'roadmap',      href: '/#roadmap',      label: t.nav.roadmap },
-    { key: 'download',     href: '/download',    label: t.nav.download },
+    { key: 'ecosystem',    href: '/#ecosystem',    label: t.nav.roadmap },
+    { key: 'download',     href: '/download',      label: t.nav.download },
+    { key: 'docs',         href: docsUrl,          label: t.nav.docs, external: true },
   ]
 
   const drawerItems: MenuProps['items'] = navLinks.map((link) => ({
     key: link.key,
-    label: <a href={link.href}>{link.label}</a>,
+    icon: link.key === 'docs' ? <ReadOutlined /> : undefined,
+    label: link.external ? (
+      <a href={link.href} target="_blank" rel="noreferrer">
+        {link.label}
+      </a>
+    ) : (
+      <a href={link.href}>{link.label}</a>
+    ),
   }))
 
   const localeMenu: MenuProps = {
@@ -76,30 +92,50 @@ export default function SiteHeader() {
           <ul className="vc-nav-list">
             {navLinks.map((link) => (
               <li key={link.key}>
-                <a href={link.href} className="vc-nav-link">{link.label}</a>
+                <a
+                  href={link.href}
+                  className="vc-nav-link"
+                  {...(link.external
+                    ? { target: '_blank', rel: 'noreferrer' }
+                    : {})}
+                >
+                  {link.label}
+                </a>
               </li>
             ))}
           </ul>
         </nav>
 
-        <Space size={6} style={{ flexShrink: 0 }}>
+        <Space size={4} className="vc-header-actions" style={{ flexShrink: 0 }}>
+          <Button
+            type="text"
+            className="vc-header-action vc-header-docs-mobile"
+            icon={<ReadOutlined />}
+            href={docsUrl}
+            target="_blank"
+            rel="noreferrer"
+            aria-label={t.nav.docs}
+          />
+
           <Dropdown menu={localeMenu} placement="bottomRight" trigger={['click']}>
             <Button
               type="text"
+              className="vc-header-action"
               icon={<GlobalOutlined />}
-              style={{ color: 'rgba(220,230,245,0.65)', display: 'flex', alignItems: 'center', gap: 4 }}
+              aria-label={current.label}
             >
-              <span className="vc-btn-label" style={{ fontSize: 13 }}>{current.short}</span>
+              <span className="vc-btn-label">{current.short}</span>
             </Button>
           </Dropdown>
 
           <Button
-            className="vc-header-login"
+            type="text"
+            className="vc-header-action vc-header-login"
             icon={<LoginOutlined />}
-            style={{ background: 'transparent', borderColor: 'rgba(255,255,255,0.15)', color: '#dce6f5' }}
             href={loginUrl}
-            target='_blank'
-            rel='noreferrer'
+            target="_blank"
+            rel="noreferrer"
+            aria-label={t.nav.login}
           >
             <span className="vc-btn-label">{t.nav.login}</span>
           </Button>
@@ -109,36 +145,40 @@ export default function SiteHeader() {
             type="text"
             style={{ color: '#dce6f5', display: 'none' }}
             className="vc-mobile-menu-btn"
-            onClick={() => setDrawerOpen(true)}
+            aria-label={t.header.drawerTitle}
+            onClick={openDrawer}
           />
         </Space>
       </div>
 
-      <Drawer
-        title={<Text strong style={{ color: '#dce6f5' }}>{t.header.drawerTitle}</Text>}
-        placement="right"
-        open={drawerOpen}
-        onClose={() => setDrawerOpen(false)}
-        styles={{
-          body: { padding: 0 },
-          header: { background: '#0c1a35', borderBottom: '1px solid rgba(255,255,255,0.06)' },
-          wrapper: { background: '#0c1a35' },
-        }}
-      >
-        <Menu
-          mode="inline"
-          items={[
-            ...drawerItems,
-            { type: 'divider' },
-            { key: 'login',  icon: <LoginOutlined />,  label: <a href={loginUrl} target="_blank" rel="noreferrer">{t.nav.login}</a> },
-            { key: 'github', icon: <GithubOutlined />,  label: <a href={githubUrl} target="_blank" rel="noreferrer">{t.nav.github}</a> },
-          ]}
-          selectable={false}
-          theme="dark"
-          style={{ background: '#0c1a35', border: 'none' }}
-          onClick={() => setDrawerOpen(false)}
-        />
-      </Drawer>
+      {drawerMounted ? (
+        <Drawer
+          title={<Text strong style={{ color: '#dce6f5' }}>{t.header.drawerTitle}</Text>}
+          placement="right"
+          open={drawerOpen}
+          onClose={() => setDrawerOpen(false)}
+          destroyOnClose={false}
+          styles={{
+            body: { padding: 0 },
+            header: { background: '#0c1a35', borderBottom: '1px solid rgba(255,255,255,0.06)' },
+            wrapper: { background: '#0c1a35' },
+          }}
+        >
+          <Menu
+            mode="inline"
+            items={[
+              ...drawerItems,
+              { type: 'divider' },
+              { key: 'login',  icon: <LoginOutlined />,  label: <a href={loginUrl} target="_blank" rel="noreferrer">{t.nav.login}</a> },
+              { key: 'github', icon: <GithubOutlined />,  label: <a href={githubUrl} target="_blank" rel="noreferrer">{t.nav.github}</a> },
+            ]}
+            selectable={false}
+            theme="dark"
+            style={{ background: '#0c1a35', border: 'none' }}
+            onClick={() => setDrawerOpen(false)}
+          />
+        </Drawer>
+      ) : null}
     </Header>
   )
 }

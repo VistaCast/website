@@ -29,7 +29,7 @@ export default function FeaturesSection() {
   const t = useT()
 
   return (
-    <section className="vc-section-alt" id="architecture">
+    <section className="vc-section-alt vc-defer-paint" id="architecture">
       <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 24px' }}>
         <Title
           level={2}

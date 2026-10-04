@@ -76,7 +76,7 @@ export default function ComparisonSection() {
   ]
 
   return (
-    <section className="vc-section-alt" id="comparison">
+    <section className="vc-section-alt vc-defer-paint" id="comparison">
       <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 24px' }}>
         <Title
           level={2}
@@ -92,7 +92,7 @@ export default function ComparisonSection() {
           {t.comparison.subtitle}
         </Text>
 
-        <div className="vc-comparison-scroll">
+        <div className="vc-comparison-scroll vc-comparison-desktop">
           <div className="vc-comparison-table">
             <Table
               columns={columns}
@@ -104,6 +104,28 @@ export default function ComparisonSection() {
             />
           </div>
         </div>
+
+        <ul className="vc-comparison-cards" aria-label={t.comparison.title}>
+          {t.comparison.rows.map((row) => (
+            <li key={row.dimension} className="vc-comparison-card">
+              <p className="vc-comparison-card-dim">{row.dimension}</p>
+              <div className="vc-comparison-card-row">
+                <span className="vc-comparison-card-brand vc-comparison-card-brand--cast">
+                  <VideoCameraOutlined />
+                  {t.comparison.columnVistacast}
+                </span>
+                <span className="vc-comparison-card-value">{row.vistacast}</span>
+              </div>
+              <div className="vc-comparison-card-row">
+                <span className="vc-comparison-card-brand vc-comparison-card-brand--remote">
+                  <MobileOutlined />
+                  {t.comparison.columnVistaremote}
+                </span>
+                <span className="vc-comparison-card-value">{row.vistaremote}</span>
+              </div>
+            </li>
+          ))}
+        </ul>
 
         <div className="vc-comparison-note" style={{
           marginTop: 28,

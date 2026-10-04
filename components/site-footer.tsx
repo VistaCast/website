@@ -14,7 +14,7 @@ export default function SiteFooter() {
   const t = useT()
 
   const footerLinks = [
-    { label: t.footer.docs, href: 'https://github.com/VistaCast/docs' },
+    { label: t.footer.docs, href: 'https://docs.vistacast.dev' },
     { label: t.footer.github, href: 'https://github.com/VistaCast' },
     { label: t.footer.ecosystem, href: 'https://luminaryworks.dev/' },
     { label: t.footer.privacy, href: '#' },

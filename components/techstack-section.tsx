@@ -26,7 +26,7 @@ export default function TechStackSection() {
   const t = useT()
 
   return (
-    <section className="vc-section" id="techstack">
+    <section className="vc-section vc-defer-paint" id="techstack">
       <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 24px' }}>
         <Title
           level={2}

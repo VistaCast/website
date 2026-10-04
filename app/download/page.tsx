@@ -32,13 +32,6 @@ const DOWNLOADS_API =
   process.env.NEXT_PUBLIC_DOWNLOADS_API ??
   'https://api.github.com/repos/VistaCast/downloads/releases/latest'
 
-const sectionStyle = {
-  background: '#0c1a35',
-  border: '1px solid rgba(255,255,255,0.10)',
-  borderRadius: 12,
-  padding: 24,
-} as const
-
 export default function DownloadPage() {
   const [versionLabel, setVersionLabel] = useState<string | null>(null)
 
@@ -60,17 +53,17 @@ export default function DownloadPage() {
     <I18nProvider>
       <ConfigProvider theme={{ algorithm: theme.darkAlgorithm, token: TOKEN }}>
         <SiteHeader />
-        <main style={{ maxWidth: 720, margin: '0 auto', padding: '120px 24px 80px', minHeight: '70vh' }}>
-          <Typography.Title level={1} style={{ color: '#dce6f5', marginBottom: 8 }}>
+        <main className="vc-download-page">
+          <Typography.Title level={1} className="vc-download-title">
             下载 VistaCast
           </Typography.Title>
-          <Typography.Paragraph style={{ color: 'rgba(220,230,245,0.65)', fontSize: 16 }}>
+          <Typography.Paragraph className="vc-download-lead">
             {versionLabel ? `当前最新 ${versionLabel}：` : ''}
             门店工作站 Windows / macOS，以及 Android 侧载 APK（可选）。按钮始终指向最新安装包。
           </Typography.Paragraph>
-          <Typography.Paragraph style={{ color: 'rgba(220,230,245,0.55)', fontSize: 14 }}>
+          <Typography.Paragraph className="vc-download-meta">
             安装包托管在公开仓库{' '}
-            <a href="https://github.com/VistaCast/downloads/releases" style={{ color: '#1890ff' }}>
+            <a href="https://github.com/VistaCast/downloads/releases">
               VistaCast/downloads
             </a>
             （源码仓保持私有）。
@@ -78,18 +71,18 @@ export default function DownloadPage() {
           <Alert
             type="warning"
             showIcon
-            style={{ marginBottom: 28 }}
+            className="vc-download-alert"
             message="安装包未代码签名 / 未公证。Windows SmartScreen 选「仍要运行」；macOS 对 App 右键 →「打开」。Android 需允许未知来源。"
           />
-          <Space direction="vertical" size="large" style={{ width: '100%' }}>
-            <section style={sectionStyle}>
-              <Typography.Title level={3} style={{ color: '#dce6f5', marginTop: 0 }}>
+          <Space direction="vertical" size="large" className="vc-download-stack">
+            <section className="vc-download-section">
+              <Typography.Title level={3} className="vc-download-section-title">
                 <WindowsOutlined /> / <AppleOutlined /> 门店工作站
               </Typography.Title>
-              <Typography.Paragraph style={{ color: 'rgba(220,230,245,0.65)' }}>
+              <Typography.Paragraph className="vc-download-section-body">
                 Electron 端：本地 Detect / Admin 壳。需本机或局域网可达 Admin / client-infer。
               </Typography.Paragraph>
-              <Space wrap>
+              <Space wrap className="vc-download-actions">
                 <Button type="primary" icon={<DownloadOutlined />} href={WIN_SETUP} size="large">
                   Windows 安装包 (NSIS)
                 </Button>
@@ -101,25 +94,23 @@ export default function DownloadPage() {
                 </Button>
               </Space>
             </section>
-            <section style={sectionStyle}>
-              <Typography.Title level={3} style={{ color: '#dce6f5', marginTop: 0 }}>
+            <section className="vc-download-section">
+              <Typography.Title level={3} className="vc-download-section-title">
                 <AndroidOutlined /> Android 伴侣
               </Typography.Title>
-              <Typography.Paragraph style={{ color: 'rgba(220,230,245,0.65)' }}>
+              <Typography.Paragraph className="vc-download-section-body">
                 侧载 APK（非 Play）。若 Release 尚无 APK，请用 Expo Go 或等待后续构建。
               </Typography.Paragraph>
-              <Button type="primary" icon={<DownloadOutlined />} href={ANDROID_APK} size="large">
-                下载 APK
-              </Button>
+              <div className="vc-download-actions">
+                <Button type="primary" icon={<DownloadOutlined />} href={ANDROID_APK} size="large">
+                  下载 APK
+                </Button>
+              </div>
             </section>
-            <Typography.Paragraph style={{ color: 'rgba(220,230,245,0.55)' }}>
-              <Link href="/" style={{ color: '#1890ff' }}>
-                ← 返回首页
-              </Link>
+            <Typography.Paragraph className="vc-download-links">
+              <Link href="/">← 返回首页</Link>
               {' · '}
-              <a href="https://docs.vistacast.dev/guide/device-setup" style={{ color: '#1890ff' }}>
-                设备接入文档
-              </a>
+              <a href="https://docs.vistacast.dev/guide/device-setup">设备接入文档</a>
             </Typography.Paragraph>
           </Space>
         </main>
