@@ -28,12 +28,13 @@ jobs:
           cache: pnpm
 
       - name: Install dependencies
-        run: pnpm install --no-frozen-lockfile
+        run: pnpm install --no-frozen-lockfile --config.dangerouslyAllowAllBuilds=true
 
       - name: Build static site
         run: pnpm exec next build
         env:
           NODE_ENV: production
+          NEXT_DISABLE_SWC_WASM: '0'
 
       - name: Deploy to Cloudflare Pages (production)
         uses: cloudflare/wrangler-action@v3

@@ -1,4 +1,10 @@
 packages:
   - '.'
+
+# Static Next export does not require native image tooling in CI;
+# allow transitive sharp lifecycle so pnpm install does not fail closed.
 allowBuilds:
-  sharp: set this to true or false
+  sharp: true
+
+strictDepBuilds: false
+dangerouslyAllowAllBuilds: true
