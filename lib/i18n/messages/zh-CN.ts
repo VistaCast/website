@@ -12,7 +12,7 @@ const zhCN: Messages = {
   nav: {
     architecture: '能做什么',
     plugins: '使用场景',
-    techstack: '装在现场',
+    techstack: '留在本地',
     roadmap: '产品生态',
     download: '下载',
     login: '登录',
@@ -232,6 +232,29 @@ const zhCN: Messages = {
     privacy: '隐私与合规声明',
     copyright: 'Powered by LuminaryWorks 启明工坊',
     privacyNote: '坚守技术向善，产品默认关闭员工行为监控类功能。隐私保护不是功能，是我们的默认立场。',
+  },
+  download: {
+    metaTitle: '下载 VistaCast 客户端',
+    metaDescription:
+      '下载 VistaCast 门店工作站（Windows / macOS）与 Android 伴侣 APK。安装包始终指向最新 Release。',
+    ogAlt: '下载 VistaCast',
+    title: '下载 VistaCast',
+    latest: '当前最新 {{version}}：',
+    lead: '门店工作站 Windows / macOS，以及 Android 侧载 APK（可选）。按钮始终指向最新安装包。',
+    hostedBefore: '安装包托管在公开仓库',
+    hostedAfter: '（源码仓保持私有）。',
+    unsigned:
+      '安装包未代码签名 / 未公证。Windows SmartScreen 选「仍要运行」；macOS 对 App 右键 →「打开」。Android 需允许未知来源。',
+    workstation: '门店工作站',
+    workstationBody: 'Electron 端：本地 Detect / Admin 壳。需本机或局域网可达 Admin / client-infer。',
+    winSetup: 'Windows 安装包 (NSIS)',
+    winPortable: 'Windows 便携版',
+    macDmg: 'macOS DMG',
+    android: 'Android 伴侣',
+    androidBody: '侧载 APK（非 Play）。若 Release 尚无 APK，请用 Expo Go 或等待后续构建。',
+    apk: '下载 APK',
+    backHome: '← 返回首页',
+    deviceDocs: '设备接入文档',
   },
 }
 

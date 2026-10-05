@@ -13,7 +13,7 @@ const pt: Messages = {
   nav: {
     architecture: 'Arquitetura central',
     plugins: 'Plugins setoriais',
-    techstack: 'Stack tecnológico e ecossistema',
+    techstack: 'Permanece local',
     roadmap: 'Ecossistema',
     download: 'Baixar',
     login: 'Entrar',
@@ -248,6 +248,31 @@ const pt: Messages = {
     copyright: 'Powered by LuminaryWorks',
     privacyNote:
       'Tecnologia para o bem — monitoramento de comportamento de funcionários desativado por padrão. Privacidade é nossa postura padrão, não um recurso.',
+  },
+  download: {
+    metaTitle: 'Baixar o VistaCast',
+    metaDescription:
+      'Baixe a estação de loja VistaCast (Windows / macOS) e o APK complementar para Android. Os instaladores apontam sempre para a versão mais recente.',
+    ogAlt: 'Baixar o VistaCast',
+    title: 'Baixar o VistaCast',
+    latest: 'Mais recente {{version}}:',
+    lead: 'Estação de loja para Windows e macOS, e um APK Android de sideload (opcional). Os botões apontam sempre para o instalador mais recente.',
+    hostedBefore: 'Os instaladores ficam no repositório público',
+    hostedAfter: ' (o repositório de código permanece privado).',
+    unsigned:
+      'Os instaladores não têm assinatura de código nem notarização. No SmartScreen do Windows, escolha "Executar assim mesmo". No macOS, clique com o botão direito no app e escolha Abrir. No Android é preciso permitir fontes desconhecidas.',
+    workstation: 'Estação de loja',
+    workstationBody:
+      'App Electron: shell local de Detect / Admin. Admin e client-infer precisam estar acessíveis neste computador ou na LAN.',
+    winSetup: 'Instalador do Windows (NSIS)',
+    winPortable: 'Windows portátil',
+    macDmg: 'DMG do macOS',
+    android: 'Companheiro Android',
+    androidBody:
+      'APK por sideload (não está na Play). Se esta versão ainda não tiver APK, use o Expo Go ou aguarde uma build posterior.',
+    apk: 'Baixar APK',
+    backHome: '← Voltar ao início',
+    deviceDocs: 'Documentação de dispositivos',
   },
 }
 

@@ -13,7 +13,7 @@ const ja: Messages = {
   nav: {
     architecture: 'コアアーキテクチャ',
     plugins: '業界プラグイン',
-    techstack: '技術スタックとエコシステム',
+    techstack: 'ローカルに残る',
     roadmap: '製品エコシステム',
     download: 'ダウンロード',
     login: 'ログイン',
@@ -242,6 +242,31 @@ const ja: Messages = {
     copyright: 'Powered by LuminaryWorks',
     privacyNote:
       '善のためのテクノロジー — 従業員行動監視はデフォルトオフ。プライバシーは機能ではなく、私たちのデフォルト姿勢です。',
+  },
+  download: {
+    metaTitle: 'VistaCast をダウンロード',
+    metaDescription:
+      'VistaCast の店舗ワークステーション（Windows / macOS）と Android コンパニオン APK をダウンロードします。インストーラは常に最新リリースを指します。',
+    ogAlt: 'VistaCast をダウンロード',
+    title: 'VistaCast をダウンロード',
+    latest: '最新 {{version}}：',
+    lead: '店舗ワークステーション（Windows / macOS）と、任意の Android サイドロード APK。ボタンは常に最新のインストーラを指します。',
+    hostedBefore: 'インストーラは公開リポジトリ',
+    hostedAfter: 'で配布しています（ソースリポジトリは非公開です）。',
+    unsigned:
+      'インストーラはコード署名・公証されていません。Windows の SmartScreen では「実行」を選んでください。macOS ではアプリを右クリックして「開く」を選んでください。Android では提供元不明のアプリを許可する必要があります。',
+    workstation: '店舗ワークステーション',
+    workstationBody:
+      'Electron アプリ：ローカルの Detect / Admin シェル。この端末または LAN から Admin / client-infer に到達できる必要があります。',
+    winSetup: 'Windows インストーラ (NSIS)',
+    winPortable: 'Windows ポータブル版',
+    macDmg: 'macOS DMG',
+    android: 'Android コンパニオン',
+    androidBody:
+      'サイドロード APK（Play ではありません）。このリリースに APK がまだ無い場合は、Expo Go を使うか、後続のビルドをお待ちください。',
+    apk: 'APK をダウンロード',
+    backHome: '← ホームに戻る',
+    deviceDocs: 'デバイス接続ドキュメント',
   },
 }
 

@@ -13,7 +13,7 @@ const ko: Messages = {
   nav: {
     architecture: '코어 아키텍처',
     plugins: '산업 플러그인',
-    techstack: '기술 스택 및 생태계',
+    techstack: '로컬에 유지',
     roadmap: '제품 생태계',
     download: '다운로드',
     login: '로그인',
@@ -242,6 +242,31 @@ const ko: Messages = {
     copyright: 'Powered by LuminaryWorks',
     privacyNote:
       '선을 위한 기술 — 직원 행동 모니터링 기본 비활성화. 프라이버시는 기능이 아닌 우리의 기본 자세입니다.',
+  },
+  download: {
+    metaTitle: 'VistaCast 다운로드',
+    metaDescription:
+      'VistaCast 매장 워크스테이션(Windows / macOS)과 Android 동반 APK를 다운로드합니다. 설치 파일은 항상 최신 릴리스를 가리킵니다.',
+    ogAlt: 'VistaCast 다운로드',
+    title: 'VistaCast 다운로드',
+    latest: '최신 {{version}}:',
+    lead: '매장 워크스테이션 Windows / macOS와 선택적 Android 사이드로드 APK. 버튼은 항상 최신 설치 파일을 가리킵니다.',
+    hostedBefore: '설치 파일은 공개 저장소',
+    hostedAfter: '에 있습니다(소스 저장소는 비공개입니다).',
+    unsigned:
+      '설치 파일은 코드 서명·공증되지 않았습니다. Windows SmartScreen에서는 "실행"을 선택하세요. macOS에서는 앱을 우클릭한 뒤 "열기"를 선택하세요. Android에서는 알 수 없는 출처를 허용해야 합니다.',
+    workstation: '매장 워크스테이션',
+    workstationBody:
+      'Electron 앱: 로컬 Detect / Admin 셸. 이 컴퓨터 또는 LAN에서 Admin / client-infer에 닿을 수 있어야 합니다.',
+    winSetup: 'Windows 설치 프로그램 (NSIS)',
+    winPortable: 'Windows 포터블',
+    macDmg: 'macOS DMG',
+    android: 'Android 동반 앱',
+    androidBody:
+      '사이드로드 APK(Play 아님). 이 릴리스에 APK가 없으면 Expo Go를 쓰거나 이후 빌드를 기다리세요.',
+    apk: 'APK 다운로드',
+    backHome: '← 홈으로',
+    deviceDocs: '장치 연결 문서',
   },
 }
 

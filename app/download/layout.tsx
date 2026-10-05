@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
+import en from '@/lib/i18n/messages/en'
 
 const SITE_URL = 'https://vistacast.dev'
-const TITLE = '下载 VistaCast 客户端'
-const DESCRIPTION =
-  '下载 VistaCast 门店工作站（Windows / macOS）与 Android 伴侣 APK。安装包始终指向最新 Release。'
+const TITLE = en.download.metaTitle
+const DESCRIPTION = en.download.metaDescription
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
         url: '/og.png',
         width: 1200,
         height: 630,
-        alt: '下载 VistaCast',
+        alt: en.download.ogAlt,
       },
     ],
   },

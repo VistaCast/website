@@ -13,7 +13,7 @@ const it: Messages = {
   nav: {
     architecture: 'Architettura core',
     plugins: 'Plugin di settore',
-    techstack: 'Stack tecnologico ed ecosistema',
+    techstack: 'Resta in locale',
     roadmap: 'Ecosistema',
     download: 'Download',
     login: 'Accedi',
@@ -242,6 +242,31 @@ const it: Messages = {
     copyright: 'Powered by LuminaryWorks',
     privacyNote:
       'Tecnologia per il bene — monitoraggio comportamento dipendenti disattivato di default. La privacy è la nostra postura predefinita, non una funzione.',
+  },
+  download: {
+    metaTitle: 'Scarica VistaCast',
+    metaDescription:
+      'Scarica la postazione negozio VistaCast (Windows / macOS) e l’APK companion per Android. Gli installer puntano sempre all’ultima release.',
+    ogAlt: 'Scarica VistaCast',
+    title: 'Scarica VistaCast',
+    latest: 'Ultima {{version}}:',
+    lead: 'Postazione negozio per Windows e macOS, più un APK Android in sideload (facoltativo). I pulsanti puntano sempre all’installer più recente.',
+    hostedBefore: 'Gli installer sono nel repository pubblico',
+    hostedAfter: ' (il repository del codice resta privato).',
+    unsigned:
+      'Gli installer non sono firmati né notarizzati. In Windows SmartScreen scegli "Esegui comunque". Su macOS fai clic destro sull’app e scegli Apri. Su Android serve consentire origini sconosciute.',
+    workstation: 'Postazione negozio',
+    workstationBody:
+      'App Electron: shell locale Detect / Admin. Admin e client-infer devono essere raggiungibili su questo computer o in LAN.',
+    winSetup: 'Installer Windows (NSIS)',
+    winPortable: 'Windows portable',
+    macDmg: 'DMG macOS',
+    android: 'Companion Android',
+    androidBody:
+      'APK in sideload (non su Play). Se questa release non ha ancora un APK, usa Expo Go o attendi una build successiva.',
+    apk: 'Scarica APK',
+    backHome: '← Torna alla home',
+    deviceDocs: 'Documentazione dispositivi',
   },
 }
 

@@ -13,7 +13,7 @@ const es: Messages = {
   nav: {
     architecture: 'Arquitectura central',
     plugins: 'Plugins sectoriales',
-    techstack: 'Stack tecnológico y ecosistema',
+    techstack: 'Se queda en local',
     roadmap: 'Ecosistema',
     download: 'Descargar',
     login: 'Iniciar sesión',
@@ -248,6 +248,31 @@ const es: Messages = {
     copyright: 'Powered by LuminaryWorks',
     privacyNote:
       'Tecnología para el bien: monitorización del comportamiento de empleados desactivada por defecto. La privacidad es nuestra postura por defecto, no una función.',
+  },
+  download: {
+    metaTitle: 'Descargar VistaCast',
+    metaDescription:
+      'Descarga la estación de tienda VistaCast (Windows / macOS) y el APK complementario de Android. Los instaladores apuntan siempre a la última versión.',
+    ogAlt: 'Descargar VistaCast',
+    title: 'Descargar VistaCast',
+    latest: 'Última {{version}}:',
+    lead: 'Estación de tienda para Windows y macOS, y un APK de Android para instalación lateral (opcional). Los botones apuntan siempre al instalador más reciente.',
+    hostedBefore: 'Los instaladores están en el repositorio público',
+    hostedAfter: ' (el repositorio de código sigue siendo privado).',
+    unsigned:
+      'Los instaladores no están firmados ni notarizados. En Windows SmartScreen, elige "Ejecutar de todas formas". En macOS, haz clic derecho en la app y elige Abrir. En Android hay que permitir orígenes desconocidos.',
+    workstation: 'Estación de tienda',
+    workstationBody:
+      'App Electron: shell local de Detect / Admin. Admin y client-infer deben ser accesibles en este equipo o en la LAN.',
+    winSetup: 'Instalador de Windows (NSIS)',
+    winPortable: 'Windows portable',
+    macDmg: 'DMG de macOS',
+    android: 'Compañero Android',
+    androidBody:
+      'APK de instalación lateral (no está en Play). Si esta versión aún no tiene APK, usa Expo Go o espera una compilación posterior.',
+    apk: 'Descargar APK',
+    backHome: '← Volver al inicio',
+    deviceDocs: 'Documentación de dispositivos',
   },
 }
 

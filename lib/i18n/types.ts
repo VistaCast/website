@@ -8,6 +8,7 @@ export type Locale =
   | 'it'
   | 'ja'
   | 'ko'
+  | 'fr'
 
 export interface ScenarioMessages {
   tag: string
@@ -43,6 +44,29 @@ export interface ComparisonRowMessages {
   dimension: string
   vistacast: string
   vistaremote: string
+}
+
+export interface DownloadMessages {
+  metaTitle: string
+  metaDescription: string
+  ogAlt: string
+  title: string
+  /** Prefix when a release tag is known. Contains `{{version}}`. */
+  latest: string
+  lead: string
+  hostedBefore: string
+  hostedAfter: string
+  unsigned: string
+  workstation: string
+  workstationBody: string
+  winSetup: string
+  winPortable: string
+  macDmg: string
+  android: string
+  androidBody: string
+  apk: string
+  backHome: string
+  deviceDocs: string
 }
 
 export interface Messages {
@@ -154,4 +178,5 @@ export interface Messages {
     copyright: string
     privacyNote: string
   }
+  download: DownloadMessages
 }

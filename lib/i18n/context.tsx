@@ -49,8 +49,11 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
     document.documentElement.lang = info.htmlLang
     // Keep route-level Metadata titles (e.g. /download); only sync home title for i18n.
     const path = window.location.pathname.replace(/\/+$/, '') || '/'
+    const copy = messages[next]
     if (path === '/') {
-      document.title = messages[next].meta.title
+      document.title = copy.meta.title
+    } else if (path === '/download') {
+      document.title = `${copy.download.metaTitle} · VistaCast`
     }
   }, [])
 

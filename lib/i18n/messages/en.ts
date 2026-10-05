@@ -13,7 +13,7 @@ const en: Messages = {
   nav: {
     architecture: 'What it does',
     plugins: 'Where it helps',
-    techstack: 'On your site',
+    techstack: 'Stays local',
     roadmap: 'Ecosystem',
     download: 'Download',
     login: 'Sign In',
@@ -247,6 +247,31 @@ const en: Messages = {
     copyright: 'Powered by LuminaryWorks',
     privacyNote:
       'Technology for good — employee behavior monitoring off by default. Privacy is our default stance, not a feature.',
+  },
+  download: {
+    metaTitle: 'Download VistaCast',
+    metaDescription:
+      'Download the VistaCast store workstation for Windows and macOS, and the optional Android companion APK. Installers always point at the latest release.',
+    ogAlt: 'Download VistaCast',
+    title: 'Download VistaCast',
+    latest: 'Latest {{version}}:',
+    lead: 'Store workstation for Windows and macOS, plus an optional sideload APK for Android. The buttons always point at the latest installer.',
+    hostedBefore: 'Installers are hosted in the public repo',
+    hostedAfter: ' (the source repository stays private).',
+    unsigned:
+      'Installers are not code-signed or notarized. On Windows SmartScreen, choose "Run anyway". On macOS, right-click the app and choose Open. Android needs unknown sources allowed.',
+    workstation: 'Store workstation',
+    workstationBody:
+      'Electron app: a local Detect / Admin shell. Admin and client-infer must be reachable on this machine or the LAN.',
+    winSetup: 'Windows installer (NSIS)',
+    winPortable: 'Windows portable',
+    macDmg: 'macOS DMG',
+    android: 'Android companion',
+    androidBody:
+      'Sideload APK (not on Play). If this release has no APK yet, use Expo Go or wait for a later build.',
+    apk: 'Download APK',
+    backHome: '← Back to home',
+    deviceDocs: 'Device setup docs',
   },
 }
 

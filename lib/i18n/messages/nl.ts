@@ -13,7 +13,7 @@ const nl: Messages = {
   nav: {
     architecture: 'Kernarchitectuur',
     plugins: 'Branchespecifieke plugins',
-    techstack: 'Tech stack & ecosysteem',
+    techstack: 'Blijft lokaal',
     roadmap: 'Ecosysteem',
     download: 'Download',
     login: 'Inloggen',
@@ -248,6 +248,31 @@ const nl: Messages = {
     copyright: 'Powered by LuminaryWorks',
     privacyNote:
       'Technologie ten goede — werknemersgedragmonitoring standaard uit. Privacy is onze standaardhouding, geen feature.',
+  },
+  download: {
+    metaTitle: 'VistaCast downloaden',
+    metaDescription:
+      'Download het VistaCast-winkelwerkstation (Windows / macOS) en de Android-companion-APK. Installers wijzen altijd naar de nieuwste release.',
+    ogAlt: 'VistaCast downloaden',
+    title: 'VistaCast downloaden',
+    latest: 'Nieuwste {{version}}:',
+    lead: 'Winkelwerkstation voor Windows en macOS, plus een optionele Android-sideload-APK. De knoppen wijzen altijd naar de nieuwste installer.',
+    hostedBefore: 'Installers staan in de openbare repository',
+    hostedAfter: ' (de bronrepository blijft privé).',
+    unsigned:
+      'Installers zijn niet ondertekend of genotariseerd. Kies bij Windows SmartScreen "Toch uitvoeren". Klik op macOS met de rechtermuisknop op de app en kies Open. Android vereist onbekende bronnen.',
+    workstation: 'Winkelwerkstation',
+    workstationBody:
+      'Electron-app: lokale Detect- / Admin-shell. Admin en client-infer moeten bereikbaar zijn op deze computer of in het LAN.',
+    winSetup: 'Windows-installer (NSIS)',
+    winPortable: 'Windows portable',
+    macDmg: 'macOS DMG',
+    android: 'Android-companion',
+    androidBody:
+      'Sideload-APK (niet in Play). Als deze release nog geen APK heeft, gebruik Expo Go of wacht op een latere build.',
+    apk: 'APK downloaden',
+    backHome: '← Terug naar home',
+    deviceDocs: 'Documentatie apparaatkoppeling',
   },
 }
 

@@ -8,6 +8,7 @@ import nl from './nl'
 import pt from './pt'
 import zhCN from './zh-CN'
 import zhTW from './zh-TW'
+import fr from './fr'
 
 export const messages: Record<Locale, Messages> = {
   en,
@@ -19,4 +20,5 @@ export const messages: Record<Locale, Messages> = {
   it,
   ja,
   ko,
+  fr,
 }

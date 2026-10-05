@@ -1,4 +1,5 @@
 import type { Locale } from './types'
+import { detectClientPreferredLocale } from './preferred-locale'
 
 export interface LocaleInfo {
   key: Locale
@@ -18,14 +19,15 @@ export const LOCALES: LocaleInfo[] = [
   { key: 'it',    label: 'Italiano',   short: 'IT', htmlLang: 'it',    ogLocale: 'it_IT' },
   { key: 'ja',    label: '日本語',     short: 'JA', htmlLang: 'ja',    ogLocale: 'ja_JP' },
   { key: 'ko',    label: '한국어',     short: 'KO', htmlLang: 'ko',    ogLocale: 'ko_KR' },
+  { key: 'fr',    label: 'Français',   short: 'FR', htmlLang: 'fr',    ogLocale: 'fr_FR' },
 ]
 
-export const DEFAULT_LOCALE: Locale = 'zh-CN'
+export const DEFAULT_LOCALE: Locale = 'en'
 
 export const LOCALE_STORAGE_KEY = 'vistacast-locale'
 
 export function getLocaleInfo(locale: Locale): LocaleInfo {
-  return LOCALES.find((l) => l.key === locale) ?? LOCALES[1]
+  return LOCALES.find((l) => l.key === locale) ?? LOCALES[0]
 }
 
 export function isLocale(value: string): value is Locale {
@@ -34,20 +36,5 @@ export function isLocale(value: string): value is Locale {
 
 export function detectBrowserLocale(): Locale {
   if (typeof navigator === 'undefined') return DEFAULT_LOCALE
-  const langs = navigator.languages?.length ? navigator.languages : [navigator.language]
-  for (const lang of langs) {
-    const normalized = lang.toLowerCase()
-    if (normalized.startsWith('zh-tw') || normalized.startsWith('zh-hk') || normalized.startsWith('zh-hant')) {
-      return 'zh-TW'
-    }
-    if (normalized.startsWith('zh')) return 'zh-CN'
-    if (normalized.startsWith('en')) return 'en'
-    if (normalized.startsWith('es')) return 'es'
-    if (normalized.startsWith('pt')) return 'pt'
-    if (normalized.startsWith('nl')) return 'nl'
-    if (normalized.startsWith('it')) return 'it'
-    if (normalized.startsWith('ja')) return 'ja'
-    if (normalized.startsWith('ko')) return 'ko'
-  }
-  return DEFAULT_LOCALE
+  return detectClientPreferredLocale(null) as Locale
 }
