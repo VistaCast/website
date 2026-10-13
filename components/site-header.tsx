@@ -19,7 +19,7 @@ import type { Locale } from '@/lib/i18n/types'
 
 const { Header } = Layout
 const { Text } = Typography
-const loginUrl = 'https://login.vistacast.com'
+const loginUrl = 'https://app.vistacast.dev'
 const githubUrl = 'https://github.com/VistaCast'
 const docsUrl = 'https://docs.vistacast.dev'
 
