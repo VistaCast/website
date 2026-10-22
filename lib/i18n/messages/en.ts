@@ -1,4 +1,5 @@
 ﻿import type { Messages } from '../types'
+import marketingEn from './marketing/en'
 
 const en: Messages = {
   meta: {
@@ -19,6 +20,12 @@ const en: Messages = {
     login: 'Sign In',
     github: 'GitHub',
     docs: 'Docs',
+    solutions: 'Solutions',
+    pricing: 'Pricing',
+    roi: 'ROI calculator',
+    solutionAoi: 'Inspection, AOI-lite',
+    solutionWarehouse: 'Warehouse security',
+    solutionRetail: 'Store operations',
   },
   header: { drawerTitle: 'VistaCast' },
   hero: {
@@ -273,6 +280,7 @@ const en: Messages = {
     backHome: '← Back to home',
     deviceDocs: 'Device setup docs',
   },
+  marketing: marketingEn,
 }
 
 export default en

@@ -1,4 +1,5 @@
 ﻿import type { Messages } from '../types'
+import marketingZhCN from './marketing/zh-CN'
 
 const zhCN: Messages = {
   meta: {
@@ -18,6 +19,12 @@ const zhCN: Messages = {
     login: '登录',
     github: 'GitHub',
     docs: '官方文档',
+    solutions: '解决方案',
+    pricing: '定价',
+    roi: 'ROI 计算器',
+    solutionAoi: '质检 AOI-lite',
+    solutionWarehouse: '仓储安防',
+    solutionRetail: '门店运营',
   },
   header: { drawerTitle: 'VistaCast · 视界云遥' },
   hero: {
@@ -256,6 +263,7 @@ const zhCN: Messages = {
     backHome: '← 返回首页',
     deviceDocs: '设备接入文档',
   },
+  marketing: marketingZhCN,
 }
 
 export default zhCN

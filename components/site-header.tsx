@@ -1,6 +1,7 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
+import { usePathname } from 'next/navigation'
 import { Layout, Menu, Button, Space, Drawer, Typography, Dropdown } from 'antd'
 import type { MenuProps } from 'antd'
 import {
@@ -10,6 +11,7 @@ import {
   CheckOutlined,
   GithubOutlined,
   ReadOutlined,
+  DownOutlined,
 } from '@ant-design/icons'
 
 import BrandLogo from '@/components/brand-logo'
@@ -25,16 +27,43 @@ const docsUrl = 'https://docs.vistacast.dev'
 
 export default function SiteHeader() {
   const { locale, setLocale, messages: t } = useI18n()
+  const pathname = usePathname()
   const [drawerOpen, setDrawerOpen] = useState(false)
   const [drawerMounted, setDrawerMounted] = useState(false)
+  const [solutionsOpen, setSolutionsOpen] = useState(false)
+  const solutionsRef = useRef<HTMLLIElement>(null)
 
   const current = LOCALES.find((l) => l.key === locale) ?? LOCALES[0]
+
+  useEffect(() => {
+    function onPointer(event: MouseEvent) {
+      if (!solutionsRef.current?.contains(event.target as Node)) setSolutionsOpen(false)
+    }
+    function onKey(event: KeyboardEvent) {
+      if (event.key === 'Escape') setSolutionsOpen(false)
+    }
+    document.addEventListener('mousedown', onPointer)
+    document.addEventListener('keydown', onKey)
+    return () => {
+      document.removeEventListener('mousedown', onPointer)
+      document.removeEventListener('keydown', onKey)
+    }
+  }, [])
 
   const openDrawer = () => {
     setDrawerMounted(true)
     setDrawerOpen(true)
   }
 
+  const solutionLinks = [
+    { key: 'aoi', href: '/solutions/aoi', label: t.nav.solutionAoi },
+    { key: 'warehouse', href: '/solutions/warehouse-security', label: t.nav.solutionWarehouse },
+    { key: 'retail', href: '/solutions/retail', label: t.nav.solutionRetail },
+  ]
+  const pageLinks = [
+    { key: 'pricing', href: '/pricing', label: t.nav.pricing },
+    { key: 'roi', href: '/roi', label: t.nav.roi },
+  ]
   const navLinks = [
     { key: 'architecture', href: '/#architecture', label: t.nav.architecture },
     { key: 'plugins',      href: '/#plugins',      label: t.nav.plugins },
@@ -44,17 +73,28 @@ export default function SiteHeader() {
     { key: 'docs',         href: docsUrl,          label: t.nav.docs, external: true },
   ]
 
-  const drawerItems: MenuProps['items'] = navLinks.map((link) => ({
-    key: link.key,
-    icon: link.key === 'docs' ? <ReadOutlined /> : undefined,
-    label: link.external ? (
-      <a href={link.href} target="_blank" rel="noreferrer">
-        {link.label}
-      </a>
-    ) : (
-      <a href={link.href}>{link.label}</a>
-    ),
-  }))
+  const linkItems = (links: { key: string; href: string; label: string; external?: boolean }[]): MenuProps['items'] =>
+    links.map((link) => ({
+      key: link.key,
+      icon: link.key === 'docs' ? <ReadOutlined /> : undefined,
+      label: link.external ? (
+        <a href={link.href} target="_blank" rel="noreferrer">
+          {link.label}
+        </a>
+      ) : (
+        <a href={link.href}>{link.label}</a>
+      ),
+    }))
+
+  const drawerItems: MenuProps['items'] = [
+    {
+      key: 'solutions',
+      label: t.nav.solutions,
+      children: linkItems(solutionLinks),
+    },
+    ...(linkItems(pageLinks) ?? []),
+    ...(linkItems(navLinks) ?? []),
+  ]
 
   const localeMenu: MenuProps = {
     items: LOCALES.map((l) => ({
@@ -90,6 +130,45 @@ export default function SiteHeader() {
 
         <nav className="vc-desktop-nav vc-nav-bar" aria-label="Main">
           <ul className="vc-nav-list">
+            <li
+              ref={solutionsRef}
+              className={`vc-nav-dropdown${solutionsOpen ? ' is-open' : ''}${(pathname ?? '').startsWith('/solutions') ? ' is-current' : ''}`}
+            >
+              <button
+                type="button"
+                className="vc-nav-link vc-nav-menu-btn"
+                aria-expanded={solutionsOpen}
+                aria-haspopup="true"
+                aria-controls="vc-solutions-menu"
+                onClick={() => setSolutionsOpen((open) => !open)}
+              >
+                {t.nav.solutions}
+                <DownOutlined aria-hidden />
+              </button>
+              <div id="vc-solutions-menu" className="vc-nav-dropdown-panel" role="menu">
+                {solutionLinks.map((link) => (
+                  <a
+                    key={link.key}
+                    href={link.href}
+                    role="menuitem"
+                    aria-current={pathname === link.href ? 'page' : undefined}
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+            </li>
+            {pageLinks.map((link) => (
+              <li key={link.key}>
+                <a
+                  href={link.href}
+                  className="vc-nav-link"
+                  aria-current={pathname === link.href ? 'page' : undefined}
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
             {navLinks.map((link) => (
               <li key={link.key}>
                 <a
@@ -175,7 +254,9 @@ export default function SiteHeader() {
             selectable={false}
             theme="dark"
             style={{ background: '#0c1a35', border: 'none' }}
-            onClick={() => setDrawerOpen(false)}
+            onClick={({ key }) => {
+              if (key !== 'solutions') setDrawerOpen(false)
+            }}
           />
         </Drawer>
       ) : null}

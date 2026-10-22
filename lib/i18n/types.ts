@@ -1,3 +1,5 @@
+import type { MarketingMessages } from './marketing-types'
+
 export type Locale =
   | 'en'
   | 'zh-CN'
@@ -88,6 +90,12 @@ export interface Messages {
     login: string
     github: string
     docs: string
+    solutions: string
+    pricing: string
+    roi: string
+    solutionAoi: string
+    solutionWarehouse: string
+    solutionRetail: string
   }
   header: {
     drawerTitle: string
@@ -179,4 +187,5 @@ export interface Messages {
     privacyNote: string
   }
   download: DownloadMessages
+  marketing: MarketingMessages
 }

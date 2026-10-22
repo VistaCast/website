@@ -1,4 +1,5 @@
 ﻿import type { Messages } from '../types'
+import marketingJa from './marketing/ja'
 
 const ja: Messages = {
   meta: {
@@ -19,6 +20,12 @@ const ja: Messages = {
     login: 'ログイン',
     github: 'GitHub',
     docs: 'ドキュメント',
+    solutions: 'ソリューション',
+    pricing: '料金',
+    roi: 'ROI 計算',
+    solutionAoi: '検査 AOI-lite',
+    solutionWarehouse: '倉庫セキュリティ',
+    solutionRetail: '店舗運営',
   },
   header: { drawerTitle: 'VistaCast' },
   hero: {
@@ -268,6 +275,7 @@ const ja: Messages = {
     backHome: '← ホームに戻る',
     deviceDocs: 'デバイス接続ドキュメント',
   },
+  marketing: marketingJa,
 }
 
 export default ja

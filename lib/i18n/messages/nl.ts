@@ -1,4 +1,5 @@
 ﻿import type { Messages } from '../types'
+import marketingNl from './marketing/nl'
 
 const nl: Messages = {
   meta: {
@@ -19,6 +20,12 @@ const nl: Messages = {
     login: 'Inloggen',
     github: 'GitHub',
     docs: 'Docs',
+    solutions: 'Oplossingen',
+    pricing: 'Prijzen',
+    roi: 'ROI-calculator',
+    solutionAoi: 'Inspectie AOI-lite',
+    solutionWarehouse: 'Magazijnbeveiliging',
+    solutionRetail: 'Winkeloperatie',
   },
   header: { drawerTitle: 'VistaCast' },
   hero: {
@@ -274,6 +281,7 @@ const nl: Messages = {
     backHome: '← Terug naar home',
     deviceDocs: 'Documentatie apparaatkoppeling',
   },
+  marketing: marketingNl,
 }
 
 export default nl

@@ -1,4 +1,5 @@
 import type { Messages } from '../types'
+import marketingFr from './marketing/fr'
 
 const fr: Messages = {
   "meta": {
@@ -18,7 +19,13 @@ const fr: Messages = {
     "download": "Télécharger",
     "login": "Se connecter",
     "github": "GitHub",
-    "docs": "Documents"
+    "docs": "Documents",
+    "solutions": "Solutions",
+    "pricing": "Tarifs",
+    "roi": "Calculateur ROI",
+    "solutionAoi": "Inspection AOI-lite",
+    "solutionWarehouse": "Sécurité entrepôt",
+    "solutionRetail": "Exploitation magasin",
   },
   "header": {
     "drawerTitle": "VistaCast"
@@ -318,7 +325,8 @@ const fr: Messages = {
     "apk": "Télécharger l’APK",
     "backHome": "← Retour à l’accueil",
     "deviceDocs": "Documentation d’accès des appareils"
-  }
+  },
+  marketing: marketingFr,
 }
 
 export default fr

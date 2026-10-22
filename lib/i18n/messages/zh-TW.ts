@@ -1,4 +1,5 @@
 ﻿import type { Messages } from '../types'
+import marketingZhTW from './marketing/zh-TW'
 
 const zhTW: Messages = {
   meta: {
@@ -18,6 +19,12 @@ const zhTW: Messages = {
     login: '登入',
     github: 'GitHub',
     docs: '官方文件',
+    solutions: '解決方案',
+    pricing: '定價',
+    roi: 'ROI 計算器',
+    solutionAoi: '質檢 AOI-lite',
+    solutionWarehouse: '倉儲安防',
+    solutionRetail: '門市營運',
   },
   header: { drawerTitle: 'VistaCast · 視界雲遙' },
   hero: {
@@ -255,6 +262,7 @@ const zhTW: Messages = {
     backHome: '← 返回首頁',
     deviceDocs: '裝置接入文件',
   },
+  marketing: marketingZhTW,
 }
 
 export default zhTW

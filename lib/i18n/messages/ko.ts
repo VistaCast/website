@@ -1,4 +1,5 @@
 ﻿import type { Messages } from '../types'
+import marketingKo from './marketing/ko'
 
 const ko: Messages = {
   meta: {
@@ -19,6 +20,12 @@ const ko: Messages = {
     login: '로그인',
     github: 'GitHub',
     docs: '문서',
+    solutions: '솔루션',
+    pricing: '요금',
+    roi: 'ROI 계산기',
+    solutionAoi: '검사 AOI-lite',
+    solutionWarehouse: '창고 보안',
+    solutionRetail: '매장 운영',
   },
   header: { drawerTitle: 'VistaCast' },
   hero: {
@@ -268,6 +275,7 @@ const ko: Messages = {
     backHome: '← 홈으로',
     deviceDocs: '장치 연결 문서',
   },
+  marketing: marketingKo,
 }
 
 export default ko
