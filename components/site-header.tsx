@@ -25,22 +25,74 @@ const loginUrl = 'https://app.vistacast.dev'
 const githubUrl = 'https://github.com/VistaCast'
 const docsUrl = 'https://docs.vistacast.dev'
 
+type NavLink = { key: string; href: string; label: string; external?: boolean }
+type OpenMenu = 'product' | 'solutions' | null
+
+function NavDropdown({
+  id,
+  label,
+  links,
+  open,
+  current,
+  pathname,
+  onToggle,
+  onNavigate,
+}: {
+  id: string
+  label: string
+  links: NavLink[]
+  open: boolean
+  current?: boolean
+  pathname?: string | null
+  onToggle: () => void
+  onNavigate: () => void
+}) {
+  return (
+    <li className={`vc-nav-dropdown${open ? ' is-open' : ''}${current ? ' is-current' : ''}`}>
+      <button
+        type="button"
+        className="vc-nav-link vc-nav-menu-btn"
+        aria-expanded={open}
+        aria-haspopup="true"
+        aria-controls={id}
+        onClick={onToggle}
+      >
+        {label}
+        <DownOutlined aria-hidden />
+      </button>
+      <div id={id} className="vc-nav-dropdown-panel" role="menu">
+        {links.map((link) => (
+          <a
+            key={link.key}
+            href={link.href}
+            role="menuitem"
+            aria-current={pathname === link.href ? 'page' : undefined}
+            onClick={onNavigate}
+          >
+            {link.label}
+          </a>
+        ))}
+      </div>
+    </li>
+  )
+}
+
 export default function SiteHeader() {
   const { locale, setLocale, messages: t } = useI18n()
   const pathname = usePathname()
   const [drawerOpen, setDrawerOpen] = useState(false)
   const [drawerMounted, setDrawerMounted] = useState(false)
-  const [solutionsOpen, setSolutionsOpen] = useState(false)
-  const solutionsRef = useRef<HTMLLIElement>(null)
+  const [openMenu, setOpenMenu] = useState<OpenMenu>(null)
+  const navRef = useRef<HTMLElement>(null)
 
   const current = LOCALES.find((l) => l.key === locale) ?? LOCALES[0]
 
   useEffect(() => {
     function onPointer(event: MouseEvent) {
-      if (!solutionsRef.current?.contains(event.target as Node)) setSolutionsOpen(false)
+      if (!navRef.current?.contains(event.target as Node)) setOpenMenu(null)
     }
     function onKey(event: KeyboardEvent) {
-      if (event.key === 'Escape') setSolutionsOpen(false)
+      if (event.key === 'Escape') setOpenMenu(null)
     }
     document.addEventListener('mousedown', onPointer)
     document.addEventListener('keydown', onKey)
@@ -55,22 +107,22 @@ export default function SiteHeader() {
     setDrawerOpen(true)
   }
 
-  const solutionLinks = [
+  const productLinks: NavLink[] = [
+    { key: 'architecture', href: '/#architecture', label: t.nav.architecture },
+    { key: 'plugins', href: '/#plugins', label: t.nav.plugins },
+    { key: 'techstack', href: '/#techstack', label: t.nav.techstack },
+    { key: 'ecosystem', href: '/#ecosystem', label: t.nav.roadmap },
+  ]
+  const solutionLinks: NavLink[] = [
     { key: 'aoi', href: '/solutions/aoi', label: t.nav.solutionAoi },
     { key: 'warehouse', href: '/solutions/warehouse-security', label: t.nav.solutionWarehouse },
     { key: 'retail', href: '/solutions/retail', label: t.nav.solutionRetail },
   ]
-  const pageLinks = [
+  const pageLinks: NavLink[] = [
     { key: 'pricing', href: '/pricing', label: t.nav.pricing },
     { key: 'roi', href: '/roi', label: t.nav.roi },
-  ]
-  const navLinks = [
-    { key: 'architecture', href: '/#architecture', label: t.nav.architecture },
-    { key: 'plugins',      href: '/#plugins',      label: t.nav.plugins },
-    { key: 'techstack',    href: '/#techstack',    label: t.nav.techstack },
-    { key: 'ecosystem',    href: '/#ecosystem',    label: t.nav.roadmap },
-    { key: 'download',     href: '/download',      label: t.nav.download },
-    { key: 'docs',         href: docsUrl,          label: t.nav.docs, external: true },
+    { key: 'download', href: '/download', label: t.nav.download },
+    { key: 'docs', href: docsUrl, label: t.nav.docs, external: true },
   ]
 
   const linkItems = (links: { key: string; href: string; label: string; external?: boolean }[]): MenuProps['items'] =>
@@ -88,12 +140,16 @@ export default function SiteHeader() {
 
   const drawerItems: MenuProps['items'] = [
     {
+      key: 'product',
+      label: t.nav.product,
+      children: linkItems(productLinks),
+    },
+    {
       key: 'solutions',
       label: t.nav.solutions,
       children: linkItems(solutionLinks),
     },
     ...(linkItems(pageLinks) ?? []),
-    ...(linkItems(navLinks) ?? []),
   ]
 
   const localeMenu: MenuProps = {
@@ -128,55 +184,33 @@ export default function SiteHeader() {
           <BrandLogo size={34} />
         </a>
 
-        <nav className="vc-desktop-nav vc-nav-bar" aria-label="Main">
+        <nav ref={navRef} className="vc-desktop-nav vc-nav-bar" aria-label="Main">
           <ul className="vc-nav-list">
-            <li
-              ref={solutionsRef}
-              className={`vc-nav-dropdown${solutionsOpen ? ' is-open' : ''}${(pathname ?? '').startsWith('/solutions') ? ' is-current' : ''}`}
-            >
-              <button
-                type="button"
-                className="vc-nav-link vc-nav-menu-btn"
-                aria-expanded={solutionsOpen}
-                aria-haspopup="true"
-                aria-controls="vc-solutions-menu"
-                onClick={() => setSolutionsOpen((open) => !open)}
-              >
-                {t.nav.solutions}
-                <DownOutlined aria-hidden />
-              </button>
-              <div id="vc-solutions-menu" className="vc-nav-dropdown-panel" role="menu">
-                {solutionLinks.map((link) => (
-                  <a
-                    key={link.key}
-                    href={link.href}
-                    role="menuitem"
-                    aria-current={pathname === link.href ? 'page' : undefined}
-                  >
-                    {link.label}
-                  </a>
-                ))}
-              </div>
-            </li>
+            <NavDropdown
+              id="vc-product-menu"
+              label={t.nav.product}
+              links={productLinks}
+              open={openMenu === 'product'}
+              onToggle={() => setOpenMenu((menu) => (menu === 'product' ? null : 'product'))}
+              onNavigate={() => setOpenMenu(null)}
+            />
+            <NavDropdown
+              id="vc-solutions-menu"
+              label={t.nav.solutions}
+              links={solutionLinks}
+              current={(pathname ?? '').startsWith('/solutions')}
+              pathname={pathname}
+              open={openMenu === 'solutions'}
+              onToggle={() => setOpenMenu((menu) => (menu === 'solutions' ? null : 'solutions'))}
+              onNavigate={() => setOpenMenu(null)}
+            />
             {pageLinks.map((link) => (
               <li key={link.key}>
                 <a
                   href={link.href}
                   className="vc-nav-link"
                   aria-current={pathname === link.href ? 'page' : undefined}
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
-            {navLinks.map((link) => (
-              <li key={link.key}>
-                <a
-                  href={link.href}
-                  className="vc-nav-link"
-                  {...(link.external
-                    ? { target: '_blank', rel: 'noreferrer' }
-                    : {})}
+                  {...(link.external ? { target: '_blank', rel: 'noreferrer' } : {})}
                 >
                   {link.label}
                 </a>
@@ -255,7 +289,7 @@ export default function SiteHeader() {
             theme="dark"
             style={{ background: '#0c1a35', border: 'none' }}
             onClick={({ key }) => {
-              if (key !== 'solutions') setDrawerOpen(false)
+              if (key !== 'solutions' && key !== 'product') setDrawerOpen(false)
             }}
           />
         </Drawer>

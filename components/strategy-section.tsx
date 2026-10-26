@@ -37,15 +37,16 @@ function ScenarioPanel({ s, index }: { s: ScenarioMessages; index: number }) {
   const tagColor = SCENARIO_TAG_COLORS[index % SCENARIO_TAG_COLORS.length]
 
   return (
-    <Row gutter={[32, 32]} align="middle">
-      <Col xs={24} md={14}>
+    <Row gutter={[16, 16]} align="stretch">
+      <Col xs={24} md={12}>
         <div className="vc-scenario-card" style={{
-          padding: '28px 32px',
+          padding: '20px 22px',
           borderRadius: 14,
           background: 'rgba(11,20,40,0.7)',
           border: `1px solid ${goalColor}28`,
+          height: '100%',
         }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 20 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 14 }}>
             <div style={{
               width: 52,
               height: 52,
@@ -69,6 +70,7 @@ function ScenarioPanel({ s, index }: { s: ScenarioMessages; index: number }) {
             {t.strategy.coreCapabilities}
           </Text>
           <List
+            className="vc-scenario-caps"
             dataSource={s.capabilities}
             renderItem={(item) => (
               <List.Item style={{ borderBottom: 'none', padding: '6px 0' }}>
@@ -82,21 +84,23 @@ function ScenarioPanel({ s, index }: { s: ScenarioMessages; index: number }) {
         </div>
       </Col>
 
-      <Col xs={24} md={10}>
-        <div style={{
-          padding: '24px',
-          borderRadius: 14,
-          background: `${goalColor}08`,
-          border: `1px solid ${goalColor}30`,
-          textAlign: 'center',
-        }}>
-          <ClockCircleOutlined style={{ fontSize: 32, color: goalColor, marginBottom: 16 }} />
-          <Text style={{ color: 'rgba(220,230,245,0.5)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '0.08em', display: 'block', marginBottom: 10 }}>
-            {t.strategy.businessGoal}
-          </Text>
-          <Text style={{ color: '#dce6f5', fontSize: 15, lineHeight: 1.6, display: 'block' }}>
-            {s.goal}
-          </Text>
+      <Col xs={24} md={12}>
+        <div
+          className="vc-strategy-goal"
+          style={{
+            background: `${goalColor}08`,
+            border: `1px solid ${goalColor}30`,
+          }}
+          aria-live="polite"
+        >
+          <div className="vc-strategy-goal-kicker">
+            <ClockCircleOutlined style={{ color: goalColor, fontSize: 15 }} />
+            <Text style={{ color: 'rgba(220,230,245,0.5)', fontSize: 11, letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+              {t.strategy.businessGoal}
+            </Text>
+          </div>
+          <Text className="vc-strategy-goal-line">{s.goal}</Text>
+          <Text className="vc-strategy-goal-detail">{s.detail}</Text>
         </div>
       </Col>
     </Row>
@@ -130,19 +134,9 @@ export default function StrategySection() {
       onTouchStart={() => setPaused(true)}
     >
       <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 24px' }}>
-        <Title level={2} className="vc-section-title" style={{ color: '#dce6f5', fontWeight: 800, fontSize: 'clamp(22px,3vw,36px)' }}>
+        <Title level={2} className="vc-section-title vc-strategy-title" style={{ color: '#dce6f5', fontWeight: 800, fontSize: 'clamp(22px,3vw,36px)' }}>
           {t.strategy.title}
         </Title>
-        <Text
-          key={active}
-          className="vc-section-subtitle vc-strategy-lead"
-          style={{ color: 'rgba(220,230,245,0.6)', fontSize: 15, lineHeight: 1.7 }}
-          aria-live="polite"
-        >
-          {t.strategy.scenarios[Number(active)]?.lead ??
-            t.strategy.scenarios[Number(active)]?.goal ??
-            t.strategy.subtitle}
-        </Text>
 
         <Tabs
           className="vc-strategy-tabs"

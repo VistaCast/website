@@ -17,10 +17,13 @@ export interface ScenarioMessages {
   scene: string
   /** Tab label. When omitted, the first three use strategy.tabRetail / tabWarehouse / tabIndustrial. */
   tab?: string
-  /** One line under the section title. Changes with the active tab. */
+  /** Longer scene note kept in messages. The card shows `goal` and `detail` instead. */
   lead?: string
   capabilities: string[]
+  /** One sentence in the “what it means” card. */
   goal: string
+  /** Shorter paragraph under `goal`. Smaller type in the card. */
+  detail: string
 }
 
 export interface FeatureMessages {
@@ -90,6 +93,7 @@ export interface Messages {
     login: string
     github: string
     docs: string
+    product: string
     solutions: string
     pricing: string
     roi: string

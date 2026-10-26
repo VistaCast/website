@@ -303,10 +303,49 @@ body {
   display: block;
 }
 
-.vc-strategy-lead {
-  max-width: 920px;
-  margin-bottom: 28px !important;
-  animation: vc-strategy-lead-in 0.35s ease;
+.vc-strategy-title {
+  margin-bottom: 8px !important;
+}
+
+.vc-strategy-goal {
+  height: 100%;
+  padding: 20px 22px;
+  border-radius: 14px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.vc-strategy-goal-kicker {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.vc-strategy-goal-line {
+  color: #dce6f5 !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  line-height: 1.6 !important;
+  display: block !important;
+}
+
+.vc-strategy-goal-detail {
+  color: rgba(220, 230, 245, 0.62) !important;
+  font-size: 13px !important;
+  line-height: 1.7 !important;
+  display: block !important;
+  margin-top: 8px !important;
+}
+
+@media (min-width: 768px) {
+  .vc-scenario-caps .ant-list-items {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 12px;
+  }
 }
 
 /* Below-fold: skip offscreen paint until near viewport (LCP-friendly) */
@@ -321,17 +360,6 @@ body {
   margin: 0;
   padding: 0;
   gap: 12px;
-}
-
-@keyframes vc-strategy-lead-in {
-  from {
-    opacity: 0;
-    transform: translateY(6px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
 }
 
 /* ─── Tech stack cards ───────────────────────────────── */
@@ -738,10 +766,6 @@ body {
     flex: 0 0 auto;
   }
 
-  .vc-strategy-lead {
-    max-width: none;
-  }
-
   .vc-hero {
     padding: 64px 0 56px;
   }
@@ -758,8 +782,9 @@ body {
     gap: 8px;
   }
 
-  .vc-nav-link {
-    font-size: 12.5px;
+  .vc-nav-link,
+  .vc-nav-menu-btn {
+    font-size: 13px;
   }
 
   .vc-header-subtitle {
@@ -1197,6 +1222,8 @@ body {
   left: 0;
   z-index: 30;
   min-width: 220px;
+  width: max-content;
+  max-width: min(360px, 80vw);
   padding: 8px;
   background: #0c1a35;
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -1565,16 +1592,15 @@ body {
 
 @media (max-width: 1280px) {
   .vc-nav-list {
-    gap: 8px;
-  }
-
-  .vc-nav-link,
-  .vc-nav-menu-btn {
-    font-size: 12.5px;
+    gap: 10px;
   }
 }
 
 @media (max-width: 1099px) {
+  .vc-header-login .vc-btn-label {
+    display: none;
+  }
+
   .vc-mkt-cards,
   .vc-price-cards,
   .vc-cams {
