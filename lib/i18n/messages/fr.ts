@@ -1,4 +1,5 @@
 import type { Messages } from '../types'
+import marketingFr from './marketing/fr'
 
 const fr: Messages = {
   "meta": {
@@ -16,9 +17,16 @@ const fr: Messages = {
     "techstack": "Reste en local",
     "roadmap": "Écosystème",
     "download": "Télécharger",
-    "login": "Se connecter",
+    "login": "Connexion",
     "github": "GitHub",
-    "docs": "Documents"
+    "docs": "Docs",
+    "product": "Produit",
+    "solutions": "Solutions",
+    "pricing": "Tarifs",
+    "roi": "ROI",
+    "solutionAoi": "Inspection AOI-lite",
+    "solutionWarehouse": "Sécurité entrepôt",
+    "solutionRetail": "Exploitation magasin",
   },
   "header": {
     "drawerTitle": "VistaCast"
@@ -81,7 +89,8 @@ const fr: Messages = {
           "Zones chaudes et séjour",
           "Alertes sur les outils que vous utilisez déjà"
         ],
-        "goal": "Les gestionnaires voient l'évolution du trafic, au lieu de se contenter de relire la vidéo."
+        "goal": "Les gestionnaires voient l'évolution du trafic, au lieu de se contenter de relire la vidéo.",
+        "detail": "Le nombre d’entrées aujourd’hui, les heures plus chargées et les endroits où les gens sont restés sont là à l’ouverture. Les équipes et le stock peuvent suivre cette journée, sans attendre la fermeture pour rembobiner."
       },
       {
         "tab": "Entrepôt",
@@ -94,11 +103,12 @@ const fr: Messages = {
           "Horaires basés sur les équipes",
           "Alertes dans le canal de service"
         ],
-        "goal": "Quand quelqu'un entre la nuit, la personne de service le sait immédiatement."
+        "goal": "Quand quelqu'un entre la nuit, la personne de service le sait immédiatement.",
+        "detail": "L’avis nomme la caméra sous laquelle la personne est passée. Les allées et venues de jour restent silencieuses, et l’alerte ne part que sur les quarts que vous réglez."
       },
       {
         "tab": "Optique de ligne",
-        "lead": "Les pièces manquantes, les mauvaises pièces, les décalages et les problèmes de soudure apparaissent à la station lorsqu'ils se produisent, avant que l'ensemble du lot ne doive être retravaillé. Les ponts, les vides, les joints froids, les codes-barres et les étiquettes se trouvent dans le même logiciel. L'inspection reste sur la ligne que vous utilisez déjà.",
+        "lead": "Les pièces manquantes, les mauvaises pièces, les décalages et les problèmes de soudure apparaissent à la station lorsqu'ils se produisent, avant que l'ensemble du lot ne doive être retravaillé. Les ponts, les vides, les joints froids, les codes-barres et les étiquettes se trouvent dans le même logiciel. Les cartes à retoucher sont mises de côté à ce poste.",
         "tag": "Doubler",
         "scene": "PCB, assemblage, étiquettes et chemins de perles",
         "capabilities": [
@@ -107,7 +117,8 @@ const fr: Messages = {
           "Présence de code-barres et d’étiquettes",
           "Fonctionne sur un PC de station normal"
         ],
-        "goal": "L'inspection optique reste sur la station que vous possédez déjà."
+        "goal": "Les pièces manquantes et la soudure se voient à ce poste, avant de renvoyer le lot en retouche.",
+        "detail": "Mauvaise pièce, décalage, pont, vide, code-barres et étiquette se vérifient sur le poste. Les cartes à retoucher sont mises de côté à ce moment-là, sans rappeler tout le lot plus tard."
       },
       {
         "tab": "Sécurité industrielle",
@@ -120,7 +131,8 @@ const fr: Messages = {
           "Régions dessinées sur le cadre",
           "Alertes dans les systèmes existants"
         ],
-        "goal": "Une personne se trouvant dans la zone dangereuse déclenche une alerte maintenant, et non lors d'un enregistrement ultérieur."
+        "goal": "Une personne se trouvant dans la zone dangereuse déclenche une alerte maintenant, et non lors d'un enregistrement ultérieur.",
+        "detail": "Quelqu’un qui entre, une chute ou de la fumée arrive sur le moment aux personnes qui doivent le savoir. Ce qui s’est passé pendant le quart n’attend pas la fin pour apparaître dans un enregistrement."
       },
       {
         "tab": "Soins à domicile",
@@ -133,7 +145,8 @@ const fr: Messages = {
           "Prévenir la famille afin",
           "Une personne décide de la prochaine étape"
         ],
-        "goal": "Lorsque quelque chose arrive à la maison, une personne est avertie et choisit quoi faire."
+        "goal": "Lorsque quelque chose arrive à la maison, une personne est avertie et choisit quoi faire.",
+        "detail": "Une chute, ou un mouvement de nuit qui ne devrait pas être là, arrive à la famille dans l’ordre que vous réglez. Le logiciel prévient seulement. Une personne décide de la suite. Il n’appelle pas les secours."
       },
       {
         "tab": "Périmètre du chantier",
@@ -146,7 +159,8 @@ const fr: Messages = {
           "Mêmes alertes que le pack entrepôt",
           "Dans le flux de travail de service"
         ],
-        "goal": "Un périmètre franchi et une caméra morte deviennent tous deux des événements que quelqu'un peut gérer."
+        "goal": "Un périmètre franchi et une caméra morte deviennent tous deux des événements que quelqu'un peut gérer.",
+        "detail": "L’avis dit quel tronçon et quelle caméra, et il va directement à la personne de garde, par le même chemin que l’entrepôt."
       }
     ]
   },
@@ -318,7 +332,8 @@ const fr: Messages = {
     "apk": "Télécharger l’APK",
     "backHome": "← Retour à l’accueil",
     "deviceDocs": "Documentation d’accès des appareils"
-  }
+  },
+  marketing: marketingFr,
 }
 
 export default fr

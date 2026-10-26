@@ -1,4 +1,5 @@
 ﻿import type { Messages } from '../types'
+import marketingEn from './marketing/en'
 
 const en: Messages = {
   meta: {
@@ -19,6 +20,13 @@ const en: Messages = {
     login: 'Sign In',
     github: 'GitHub',
     docs: 'Docs',
+    product: 'Product',
+    solutions: 'Solutions',
+    pricing: 'Pricing',
+    roi: 'ROI',
+    solutionAoi: 'Inspection, AOI-lite',
+    solutionWarehouse: 'Warehouse security',
+    solutionRetail: 'Store operations',
   },
   header: { drawerTitle: 'VistaCast' },
   hero: {
@@ -65,6 +73,7 @@ const en: Messages = {
         scene: 'Tea shops, QSR, and chain stores',
         capabilities: ['Entrance footfall', 'Period comparison', 'Hot zones and dwell', 'Alerts into the tools you already use'],
         goal: 'Managers see how traffic changes, instead of only replaying video.',
+        detail: 'Today’s count, the busier hours, and where people stayed are there when you open it. Staffing and stock can follow that day, without waiting until close to rewind the recording.',
       },
       {
         tab: 'Warehouse',
@@ -73,14 +82,16 @@ const en: Messages = {
         scene: 'Warehouses and night watch',
         capabilities: ['After-hours restricted zones', 'Aisle and perimeter alerts', 'Shift-based schedules', 'Alerts into the duty channel'],
         goal: 'When someone enters at night, the person on duty knows immediately.',
+        detail: 'The notice names the camera they walked under. Daytime movement stays quiet, and it alerts only on the shifts you set.',
       },
       {
         tab: 'Line optics',
-        lead: 'Missing parts, wrong parts, offsets, and solder issues show up at the station when they happen, before the whole batch has to be reworked. Bridges, voids, cold joints, barcodes, and labels sit in the same software. Inspection stays on the line you already run.',
+        lead: 'Missing parts, wrong parts, offsets, and solder issues show up at the station when they happen, before the whole batch has to be reworked. Bridges, voids, cold joints, barcodes, and labels sit in the same software. Boards that need rework are set aside at that station.',
         tag: 'Line',
         scene: 'PCB, assembly, labels, and bead paths',
         capabilities: ['Missing, wrong, and offset parts', 'Solder: bridge, void, and cold joint', 'Barcode and label presence', 'Runs on a normal station PC'],
-        goal: 'Optical inspection stays on the station you already have.',
+        goal: 'Missing parts and solder issues show up at this station, before the batch goes back for rework.',
+        detail: 'Wrong parts, offsets, bridges, voids, barcodes, and labels are checked on the station you already run. Boards that need rework are set aside then, instead of pulling the whole batch back later.',
       },
       {
         tab: 'Industrial safety',
@@ -89,6 +100,7 @@ const en: Messages = {
         scene: 'Hazard zones and workshops',
         capabilities: ['Person in a hazard zone', 'Fall and smoke alerts', 'Regions drawn on the frame', 'Alerts into existing systems'],
         goal: 'A person in the hazard zone raises an alert now, not in a recording later.',
+        detail: 'Someone stepping in, a fall, or smoke reaches the people who need to know at the time. What happened on the shift does not wait until the end to be found in a recording.',
       },
       {
         tab: 'Home care',
@@ -97,6 +109,7 @@ const en: Messages = {
         scene: 'Home safety and elder care',
         capabilities: ['Fall alerts', 'Unusual night activity', 'Notify family in order', 'A person decides the next step'],
         goal: 'When something happens at home, a person is notified and chooses what to do.',
+        detail: 'A fall, or movement at night that should not be there, goes to family in the order you set. The software only notifies. A person decides the next step. It does not call emergency services.',
       },
       {
         tab: 'Site perimeter',
@@ -105,6 +118,7 @@ const en: Messages = {
         scene: 'Site perimeter and camera offline',
         capabilities: ['Perimeter entry alerts', 'Camera offline alerts', 'Same alerts as the warehouse pack', 'Into the duty workflow'],
         goal: 'A crossed perimeter and a dead camera both become events someone can handle.',
+        detail: 'The notice says which stretch and which camera, and it goes straight to the person on duty, on the same path as the warehouse.',
       },
     ],
   },
@@ -273,6 +287,7 @@ const en: Messages = {
     backHome: '← Back to home',
     deviceDocs: 'Device setup docs',
   },
+  marketing: marketingEn,
 }
 
 export default en

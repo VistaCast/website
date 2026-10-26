@@ -1,4 +1,5 @@
 ﻿import type { Messages } from '../types'
+import marketingKo from './marketing/ko'
 
 const ko: Messages = {
   meta: {
@@ -19,6 +20,13 @@ const ko: Messages = {
     login: '로그인',
     github: 'GitHub',
     docs: '문서',
+    product: '제품',
+    solutions: '솔루션',
+    pricing: '요금',
+    roi: 'ROI 계산기',
+    solutionAoi: '검사 AOI-lite',
+    solutionWarehouse: '창고 보안',
+    solutionRetail: '매장 운영',
   },
   header: { drawerTitle: 'VistaCast' },
   hero: {
@@ -64,6 +72,7 @@ const ko: Messages = {
         scene: '음료, QSR, 체인 매장',
         capabilities: ['입구 유동', '시간대 비교', '체류와 핫존', '이미 쓰는 알림으로'],
         goal: '점장은 녹화만 되돌리지 않고, 손님 흐름의 변화를 봅니다.',
+        detail: '오늘 몇 명이 들어왔는지, 어느 시간대가 바빴는지, 어디에 사람이 머물렀는지 열면 맞출 수 있습니다. 근무와 발주는 그날 손님 흐름을 따르고, 문 닫은 뒤에 녹화를 되돌릴 필요가 없습니다.',
       },
       {
         tab: '창고',
@@ -71,13 +80,15 @@ const ko: Messages = {
         scene: '창고와 야간 당직',
         capabilities: ['야간 제한 구역', '통로와 경계', '교대 시간', '당직 채널로 알림'],
         goal: '밤에 사람이 들어오면 당직이 바로 압니다.',
+        detail: '어느 카메라 아래를 지났는지 알림에 적힙니다. 낮의 출입은 조용하고, 정해 둔 교대 시간에만 알립니다.',
       },
       {
         tab: '라인 광학',
         tag: '라인',
         scene: 'PCB, 조립, 라벨, 도포',
         capabilities: ['결품, 오장착, 틀어짐', '납땜: 브리지, 보이드, 냉땜', '바코드와 라벨 유무', '현장 PC에서 동작'],
-        goal: '광학 검사는 이미 있는 공정 위에 올립니다.',
+        goal: '결품과 납땜은 그 공정에서 그때 보이고, 한 로트를 되돌려 재작업하기 전에 가려집니다.',
+        detail: '오장착, 틀어짐, 브리지, 보이드, 바코드와 라벨이 있는지도 지금 공정에서 봅니다. 되돌려야 할 보드는 그때 나누고, 나중에 로트 전체를 다시 당기지 않습니다.',
       },
       {
         tab: '산업 안전',
@@ -85,6 +96,7 @@ const ko: Messages = {
         scene: '위험 구역과 작업장',
         capabilities: ['위험 구역 진입', '낙상과 연기', '화면 위 영역', '기존 시스템으로 알림'],
         goal: '위험 구역에 사람이 있으면 그때 알립니다.',
+        detail: '사람이 들어오거나, 넘어지거나, 연기가 나면 알아야 할 사람에게 그때 갑니다. 이 교대에 있었던 일을 퇴근 뒤에 녹화에서 찾지 않습니다.',
       },
       {
         tab: '가정 돌봄',
@@ -92,6 +104,7 @@ const ko: Messages = {
         scene: '가정 안전과 어르신 돌봄',
         capabilities: ['낙상 알림', '야간 이상 활동', '가족에게 순서대로 알림', '다음 판단은 사람이'],
         goal: '집에서 일이 생기면 사람에게 알리고, 그 사람이 다음을 정합니다.',
+        detail: '낙상, 또는 밤에 있으면 안 되는 움직임은 정해 둔 순서로 가족에게 갑니다. 소프트웨어는 알리기만 합니다. 다음은 사람이 정하고, 응급을 대신 부르지 않습니다.',
       },
       {
         tab: '경계',
@@ -99,6 +112,7 @@ const ko: Messages = {
         scene: '부지 경계와 카메라 오프라인',
         capabilities: ['경계 진입', '카메라 오프라인', '창고와 같은 알림', '당직 흐름으로'],
         goal: '경계를 넘은 일과 꺼진 카메라가 사람이 처리할 사건이 됩니다.',
+        detail: '어느 구간으로 들어왔는지, 어느 카메라가 끊겼는지 알림에 적혀 당직에게 갑니다. 창고와 같은 경로입니다.',
       },
     ],
   },
@@ -268,6 +282,7 @@ const ko: Messages = {
     backHome: '← 홈으로',
     deviceDocs: '장치 연결 문서',
   },
+  marketing: marketingKo,
 }
 
 export default ko

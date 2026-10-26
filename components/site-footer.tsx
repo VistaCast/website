@@ -13,6 +13,13 @@ const { Text, Link } = Typography
 export default function SiteFooter() {
   const t = useT()
 
+  const solutionLinks = [
+    { label: t.nav.solutionAoi, href: '/solutions/aoi' },
+    { label: t.nav.solutionWarehouse, href: '/solutions/warehouse-security' },
+    { label: t.nav.solutionRetail, href: '/solutions/retail' },
+    { label: t.nav.pricing, href: '/pricing' },
+    { label: t.nav.roi, href: '/roi' },
+  ]
   const footerLinks = [
     { label: t.footer.docs, href: 'https://docs.vistacast.dev' },
     { label: t.footer.github, href: 'https://github.com/VistaCast' },
@@ -32,6 +39,14 @@ export default function SiteFooter() {
           marginBottom: 24,
         }}>
           <BrandLogo size={30} fontSize={14} />
+
+          <nav aria-label={t.nav.solutions} className="vc-footer-solutions">
+            {solutionLinks.map((l) => (
+              <Link key={l.href} href={l.href} style={{ color: 'rgba(220,230,245,0.5)', fontSize: 13 }}>
+                {l.label}
+              </Link>
+            ))}
+          </nav>
 
           <Space size={24} wrap>
             {footerLinks.map((l) => (

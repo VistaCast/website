@@ -5,9 +5,11 @@ import React, {
   useCallback,
   useContext,
   useEffect,
+  useLayoutEffect,
   useMemo,
   useState,
 } from 'react'
+import { usePathname } from 'next/navigation'
 
 import { messages } from './messages'
 import {
@@ -18,6 +20,20 @@ import {
   isLocale,
 } from './locales'
 import type { Locale, Messages } from './types'
+
+function pageTitle(pathname: string, copy: Messages): string | null {
+  const path = pathname.split('?')[0].split('#')[0].replace(/\.html$/, '').replace(/\/+$/, '') || '/'
+  if (path === '/') return copy.meta.title
+  if (path === '/download') return `${copy.download.metaTitle} · VistaCast`
+  const titles: Record<string, string> = {
+    '/solutions/aoi': copy.marketing.aoi.metaTitle,
+    '/solutions/warehouse-security': copy.marketing.warehouse.metaTitle,
+    '/solutions/retail': copy.marketing.retail.metaTitle,
+    '/pricing': copy.marketing.pricing.metaTitle,
+    '/roi': copy.marketing.roi.metaTitle,
+  }
+  return titles[path] ? `${titles[path]} · VistaCast` : null
+}
 
 interface I18nContextValue {
   locale: Locale
@@ -36,6 +52,7 @@ function readStoredLocale(): Locale {
 }
 
 export function I18nProvider({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname()
   const [locale, setLocaleState] = useState<Locale>(DEFAULT_LOCALE)
   const [ready, setReady] = useState(false)
 
@@ -47,15 +64,15 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
   const applyDocumentMeta = useCallback((next: Locale) => {
     const info = getLocaleInfo(next)
     document.documentElement.lang = info.htmlLang
-    // Keep route-level Metadata titles (e.g. /download); only sync home title for i18n.
-    const path = window.location.pathname.replace(/\/+$/, '') || '/'
     const copy = messages[next]
-    if (path === '/') {
-      document.title = copy.meta.title
-    } else if (path === '/download') {
-      document.title = `${copy.download.metaTitle} · VistaCast`
-    }
+    const title = pageTitle(window.location.pathname, copy)
+    if (title) document.title = title
   }, [])
+
+  useLayoutEffect(() => {
+    if (!ready) return
+    applyDocumentMeta(locale)
+  }, [locale, ready, pathname, applyDocumentMeta])
 
   const setLocale = useCallback((next: Locale) => {
     setLocaleState(next)
@@ -66,7 +83,9 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     if (!ready) return
     applyDocumentMeta(locale)
-  }, [locale, ready, applyDocumentMeta])
+    const id = window.setTimeout(() => applyDocumentMeta(locale), 0)
+    return () => window.clearTimeout(id)
+  }, [locale, ready, pathname, applyDocumentMeta])
 
   const value = useMemo<I18nContextValue>(
     () => ({

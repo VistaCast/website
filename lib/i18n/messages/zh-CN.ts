@@ -1,4 +1,5 @@
 ﻿import type { Messages } from '../types'
+import marketingZhCN from './marketing/zh-CN'
 
 const zhCN: Messages = {
   meta: {
@@ -18,6 +19,13 @@ const zhCN: Messages = {
     login: '登录',
     github: 'GitHub',
     docs: '官方文档',
+    product: '产品',
+    solutions: '解决方案',
+    pricing: '定价',
+    roi: 'ROI 计算器',
+    solutionAoi: '质检 AOI-lite',
+    solutionWarehouse: '仓储安防',
+    solutionRetail: '门店运营',
   },
   header: { drawerTitle: 'VistaCast · 视界云遥' },
   hero: {
@@ -64,6 +72,7 @@ const zhCN: Messages = {
         scene: '奶茶 / 快餐 / 连锁门店',
         capabilities: ['出入口客流', '时段对比', '热区与停留', '通知发到你现在用的群'],
         goal: '让店长看到客流怎么变，而不是只回看录像。',
+        detail: '今天进了多少人、哪个时段更忙、哪里停留更久，打开就能对上。排班和备货可以跟着这一天走，不用等打烊再倒录像。',
       },
       {
         tab: '仓储物流',
@@ -72,14 +81,16 @@ const zhCN: Messages = {
         scene: '仓库 / 夜间值守',
         capabilities: ['夜间禁区进入', '通道与周界告警', '按班次设置时段', '告警推送到值班群'],
         goal: '夜里有人进入，值班的人马上知道。',
+        detail: '人走到哪一路摄像头底下，通知里会写明。白天正常进出保持安静，只在你设好的班次里提醒。',
       },
       {
         tab: '产线光学',
-        lead: '缺件、错件、偏移和焊点问题，在工位上当时就能看出来，不用等整批做完再返工。连锡、虚焊、冷焊，以及条码和标签在不在，都在这一套软件里。检测放在你现在的产线上，不必为光学再单买一套系统。',
+        lead: '缺件、错件、偏移和焊点问题，在工位上当时就能看出来，不用等整批做完再返工。连锡、虚焊、冷焊，以及条码和标签在不在，都在这一套软件里查。该返的板子在这一站就分开。',
         tag: '产线',
         scene: 'PCB / 组装 / 标签 / 胶路',
         capabilities: ['缺件、错件、偏移', '焊点：连锡、虚焊、冷焊', '条码与标签在位', '普通工位电脑即可运行'],
-        goal: '光学检测放在现有工位上，不必另买一套系统。',
+        goal: '缺件和焊点在这一站当时就能看出来，不用等整批返工。',
+        detail: '错件、偏移、连锡和虚焊，还有条码、标签在不在，都在现在的工位上查。该返的板子当时就分开，不用整批下线再拉回去。',
       },
       {
         tab: '工业安全',
@@ -88,6 +99,7 @@ const zhCN: Messages = {
         scene: '危险区 / 车间',
         capabilities: ['人员进入危险区', '跌倒与烟雾告警', '画面上划定区域', '告警接到现有系统'],
         goal: '危险区有人，立刻提醒，而不是事后翻录像。',
+        detail: '人走进去、跌倒或冒烟，当时就到该知道的人手里。这一班里发生过什么，不用等下班再把录像翻一遍。',
       },
       {
         tab: '居家看护',
@@ -96,6 +108,7 @@ const zhCN: Messages = {
         scene: '居家安全 / 老人看护',
         capabilities: ['跌倒提醒', '夜间异常活动', '按家人顺序通知', '异常交给人处理，不替代急救'],
         goal: '家里有异常时通知到人，由人决定下一步。',
+        detail: '跌倒，或夜里不该有的活动，按你排好的顺序告诉家人。软件只负责通知，下一步让人来定，不替你呼叫急救。',
       },
       {
         tab: '园区周界',
@@ -104,6 +117,7 @@ const zhCN: Messages = {
         scene: '园区周界 / 摄像头离线',
         capabilities: ['周界进入提醒', '摄像头离线提醒', '和仓库用同一套通知', '交到值班的人手里'],
         goal: '周界有人进来，或者摄像头掉线，值班的人当时就知道。',
+        detail: '从哪一段进来、哪一路摄像头掉了线，通知里会写明，直接交到正在值班的人。和仓库走的是同一套。',
       },
     ],
   },
@@ -256,6 +270,7 @@ const zhCN: Messages = {
     backHome: '← 返回首页',
     deviceDocs: '设备接入文档',
   },
+  marketing: marketingZhCN,
 }
 
 export default zhCN

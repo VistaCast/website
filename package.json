@@ -10,6 +10,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --test lib/roi/calculate.test.mjs",
     "pages:deploy": "wrangler pages deploy out --project-name=vistacast-website --branch=master --commit-dirty=true"
   },
   "dependencies": {
