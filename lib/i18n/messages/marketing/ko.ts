@@ -81,6 +81,30 @@ const marketingKo: MarketingMessages = {
       { title: '직행률과 결함 파레토', body: '교대별로 불량 구성과 직행을 봅니다. 비율은 귀하의 기록에서 나옵니다. 이 페이지는 대외 비율을 쓰지 않습니다.' },
       { title: '공정 조건 대조', body: '솔더 포트나 리플로 조건을 시간축으로 불량 변화와 맞추고, 예열, 체인 속도, 파고처럼 볼 항목만 알립니다. 설비에 쓰지 않고 라인 속도도 바꾸지 않습니다.' },
     ],
+
+    industryTitle: 'Industries in this wedge',
+    industryBody:
+      'We start with electronics components, 3C assembly, and PCBA including DIP appearance. Other verticals are later pack slots, not algorithms claimed today.',
+    industries: [
+      {
+        title: 'Electronic components',
+        body: 'Odd-form and through-hole stations where a full-line machine is hard to justify.',
+      },
+      {
+        title: '3C assembly',
+        body: 'High-mix benches after reflow or wave, with evidence and a review desk.',
+      },
+      {
+        title: 'PCBA & DIP appearance',
+        body: 'Surface-visible solder and insert presence or polarity proxies. Not 3D height, not SPI paste volume.',
+      },
+    ],
+    hardwareTitle: 'Your cameras, our standard',
+    hardwareBody:
+      'Bring cameras that meet the published matrix, or follow the camera-module reference. Lights, fixtures, and the station PC are yours. We do not ship a conveyor AOI cabinet.',
+    rejectTitle: 'Sorting without owning the pusher',
+    rejectBody:
+      'PASS and NG leave as Webhook or MQTT. Your PLC or servo runs the reject pulse. The line-reject supplement pack is not the core product and never writes coils from the API.',
     recommendedLabel: '여기서 시작',
     pocNote: '정식 전환 전에 2주 수집합니다. 수집과 사람 재판정만 합니다. 귀하의 보드로 사람과 알고리즘이 맞는지를 봅니다. 얼마나 찾을지는 약속하지 않고 백분율도 쓰지 않습니다. 단계는 요금 페이지에 있습니다.',
   },

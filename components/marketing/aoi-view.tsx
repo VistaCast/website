@@ -41,6 +41,22 @@ function AoiBody() {
         <CardGrid cards={page.outcomes} />
       </section>
 
+      <section className="vc-mkt-section" aria-labelledby="aoi-industry">
+        <h2 id="aoi-industry">{page.industryTitle}</h2>
+        <p>{page.industryBody}</p>
+        <CardGrid cards={page.industries} />
+      </section>
+
+      <section className="vc-mkt-section" aria-labelledby="aoi-hardware">
+        <h2 id="aoi-hardware">{page.hardwareTitle}</h2>
+        <p>{page.hardwareBody}</p>
+      </section>
+
+      <section className="vc-mkt-section" aria-labelledby="aoi-reject">
+        <h2 id="aoi-reject">{page.rejectTitle}</h2>
+        <p>{page.rejectBody}</p>
+      </section>
+
       <p className="vc-mkt-note">{page.pocNote}</p>
       <ContactActions secondaryHref="/pricing" secondaryLabel={t.nav.pricing} />
       <RelatedLinks />

@@ -87,6 +87,30 @@ const marketingZhTW: MarketingMessages = {
         body: '把錫爐或回流的參數按時間對上不良變化，只提示該檢查的項目，例如預熱、鏈速、波高。不寫設備，不改線速。',
       },
     ],
+
+    industryTitle: 'Industries in this wedge',
+    industryBody:
+      'We start with electronics components, 3C assembly, and PCBA including DIP appearance. Other verticals are later pack slots, not algorithms claimed today.',
+    industries: [
+      {
+        title: 'Electronic components',
+        body: 'Odd-form and through-hole stations where a full-line machine is hard to justify.',
+      },
+      {
+        title: '3C assembly',
+        body: 'High-mix benches after reflow or wave, with evidence and a review desk.',
+      },
+      {
+        title: 'PCBA & DIP appearance',
+        body: 'Surface-visible solder and insert presence or polarity proxies. Not 3D height, not SPI paste volume.',
+      },
+    ],
+    hardwareTitle: 'Your cameras, our standard',
+    hardwareBody:
+      'Bring cameras that meet the published matrix, or follow the camera-module reference. Lights, fixtures, and the station PC are yours. We do not ship a conveyor AOI cabinet.',
+    rejectTitle: 'Sorting without owning the pusher',
+    rejectBody:
+      'PASS and NG leave as Webhook or MQTT. Your PLC or servo runs the reject pulse. The line-reject supplement pack is not the core product and never writes coils from the API.',
     recommendedLabel: '建議起步',
     pocNote: '轉正之前先採集兩週，只做採集和複判，用您自己的板看人和演算法是否一致。不約定能發現多少，也不寫百分比。步驟在方案與計費頁。',
   },

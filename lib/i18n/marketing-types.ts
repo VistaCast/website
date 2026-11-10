@@ -52,6 +52,13 @@ export interface AoiPageCopy {
   waveAdvice: string
   outcomesTitle: string
   outcomes: MarketingCard[]
+  industryTitle: string
+  industryBody: string
+  industries: MarketingCard[]
+  hardwareTitle: string
+  hardwareBody: string
+  rejectTitle: string
+  rejectBody: string
   recommendedLabel: string
   pocNote: string
 }

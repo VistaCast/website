@@ -6,24 +6,24 @@ const marketingEn: MarketingMessages = {
   exampleTag: 'Example — replace with your figures',
   relatedLabel: 'Related pages',
   aoi: {
-    metaTitle: 'Inspection, AOI-lite',
+    metaTitle: 'Inspection, AOI-lite — electronics, 3C, PCBA & DIP',
     metaDescription:
-      'Camera assistance for visual inspection stations: surface-visible solder signs, evidence, traceability, and human review. Not a replacement for full-line high-speed AOI, and not a view under BGA or QFN.',
-    ogAlt: 'VistaCast inspection AOI-lite: station assistance, evidence, and traceability',
+      'Pure-software inspection for electronics, 3C, and PCBA including DIP appearance. Bring your own cameras that meet the standard, or use our module reference. Verdicts leave on Webhook or MQTT; line reject is a customer PLC supplement, not a machine we sell.',
+    ogAlt: 'VistaCast pure-software AOI-lite for electronics, 3C, PCBA and DIP',
     kicker: 'Inspection',
-    title: 'Camera assistance where a standard AOI does not reach',
-    lead: 'The station package is for benches that are still inspected by eye, and for positions a standard machine covers poorly: odd-form insertion, visual checks after wave solder, and pack review. The camera sees only what is on the surface. A person makes the call on the review bench. Records stay on your site.',
+    title: 'Software inspection, not another AOI machine',
+    lead: 'VistaCast is pure software for electronics, 3C, and PCBA stations — including DIP appearance. You buy the industrial camera, light, and PC that meet our standard, or follow the camera-module reference. We do not sell a SI-1020-style track machine, 3D AOI, or SPI. The camera sees only the surface. A person reviews. Records stay on your site.',
     boundaryTitle: 'What a camera can see, and what it cannot',
     boundaryBody:
-      'A camera can only see surface-visible defects. Poor wetting, a dull grainy surface, and an abnormal fillet are in that visible range. We call those visible signs of a poor solder joint. Joints under a BGA or QFN, internal voids, and head-in-pillow are not visible. Those need X-ray, ICT, or a functional test. This does not replace full-line high-speed AOI. It covers stations a standard machine does not cover, and stations that are still inspected by eye.',
+      'A camera can only see surface-visible defects. Poor wetting, a dull grainy surface, and an abnormal fillet are in that visible range. We call those visible signs of a poor solder joint. Joints under a BGA or QFN, internal voids, and head-in-pillow are not visible. Those need X-ray, ICT, or a functional test. This does not replace full-line high-speed AOI hardware vendors. It covers stations a standard machine does not cover, and stations that are still inspected by eye.',
     cards: [
       {
         title: 'After SMT reflow',
         body: 'Looks at visible signs of a poor solder joint, bridges, and insufficient solder. Missing, shifted, or tombstoned parts can be reviewed at the same station. The board sits on a fixed fixture, or the line stops before the photo. No high-speed flying capture.',
       },
       {
-        title: 'After wave solder',
-        body: 'Looks at bridges, through-hole fill, and missed joints. Camera placement follows your line. It is not a copy of the SMT setup. Fill is judged on the component side, by whether solder has climbed onto the pad. Bridges and missed joints are judged on the solder side.',
+        title: 'After wave solder / DIP appearance',
+        body: 'Looks at bridges, through-hole fill, missed joints, and insert presence or polarity proxies for DIP. Camera placement follows your line. Fill is judged on the component side. Bridges and missed joints are judged on the solder side.',
       },
       {
         title: 'Pack review',
@@ -99,6 +99,29 @@ const marketingEn: MarketingMessages = {
         body: 'Line up wave or reflow settings with defect changes over time, and only suggest what to check, such as preheat, chain speed, or wave height. Nothing is written to the machine. Line speed is not changed.',
       },
     ],
+    industryTitle: 'Industries in this wedge',
+    industryBody:
+      'We start with electronics components, 3C assembly, and PCBA including DIP appearance. Wafer, battery, PV, and textile pages are placeholders for later packs — not algorithms we claim today.',
+    industries: [
+      {
+        title: 'Electronic components',
+        body: 'Odd-form and through-hole stations where a full-line machine is hard to justify.',
+      },
+      {
+        title: '3C assembly',
+        body: 'High-mix benches after reflow or wave, with evidence and a review desk.',
+      },
+      {
+        title: 'PCBA & DIP appearance',
+        body: 'Surface-visible solder and insert presence or polarity proxies. Not 3D height, not SPI paste volume.',
+      },
+    ],
+    hardwareTitle: 'Your cameras, our standard',
+    hardwareBody:
+      'Bring ONVIF / RTSP or industrial USB / GigE cameras that meet the published matrix. A VistaCast camera-module reference is available for ODMs. Lights, fixtures, and the station PC are yours. We do not ship a conveyor AOI cabinet.',
+    rejectTitle: 'Sorting without owning the pusher',
+    rejectBody:
+      'PASS and NG leave the station as a Webhook or MQTT verdict. Your PLC or servo runs the reject pulse. VistaCast ships a line-reject supplement pack with wiring notes and a dry-run adapter — it is not part of the core product and never writes coils from the Nest API.',
     recommendedLabel: 'Start here',
     pocNote: 'Before a paid rollout, collect for two weeks. Collection and human review only, on your own boards, to see whether the person and the algorithm agree. No promise of how much will be found, and no percentage. The steps are on the pricing page.',
   },

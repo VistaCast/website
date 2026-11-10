@@ -47,6 +47,30 @@ const marketingIt: MarketingMessages = {
       { title: 'Resa al primo passaggio e Pareto', body: 'Vedi il mix dei difetti e la resa al primo passaggio per turno. I tassi vengono dai tuoi registri. Questa pagina non pubblica un tasso.' },
       { title: 'Parametri di processo, affiancati', body: 'Allinea le impostazioni di onda o reflow ai cambiamenti di difetto nel tempo e suggerisce solo cosa controllare, come preriscaldo, velocità della catena o altezza d’onda. Non si scrive sulla macchina. La velocità di linea non cambia.' },
     ],
+
+    industryTitle: 'Industries in this wedge',
+    industryBody:
+      'We start with electronics components, 3C assembly, and PCBA including DIP appearance. Other verticals are later pack slots, not algorithms claimed today.',
+    industries: [
+      {
+        title: 'Electronic components',
+        body: 'Odd-form and through-hole stations where a full-line machine is hard to justify.',
+      },
+      {
+        title: '3C assembly',
+        body: 'High-mix benches after reflow or wave, with evidence and a review desk.',
+      },
+      {
+        title: 'PCBA & DIP appearance',
+        body: 'Surface-visible solder and insert presence or polarity proxies. Not 3D height, not SPI paste volume.',
+      },
+    ],
+    hardwareTitle: 'Your cameras, our standard',
+    hardwareBody:
+      'Bring cameras that meet the published matrix, or follow the camera-module reference. Lights, fixtures, and the station PC are yours. We do not ship a conveyor AOI cabinet.',
+    rejectTitle: 'Sorting without owning the pusher',
+    rejectBody:
+      'PASS and NG leave as Webhook or MQTT. Your PLC or servo runs the reject pulse. The line-reject supplement pack is not the core product and never writes coils from the API.',
     recommendedLabel: 'Inizia qui',
     pocNote: 'Prima del passaggio a pagamento, raccogli per due settimane. Solo raccolta e revisione umana, sulle tue schede, per vedere se la persona e l’algoritmo concordano. Nessuna promessa su quanto si troverà, e nessuna percentuale. I passi sono nella pagina dei prezzi.',
   },

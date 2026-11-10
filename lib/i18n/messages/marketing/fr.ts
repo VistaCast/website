@@ -47,6 +47,30 @@ const marketingFr: MarketingMessages = {
       { title: 'Rendement au premier passage et Pareto', body: 'Voyez le mélange des défauts et le rendement au premier passage par équipe. Les taux viennent de vos enregistrements. Cette page ne publie pas de taux.' },
       { title: 'Paramètres de procédé, côte à côte', body: 'Aligne les réglages de vague ou de refusion sur l’évolution des défauts dans le temps, et ne suggère que ce qu’il faut vérifier, comme le préchauffage, la vitesse de chaîne ou la hauteur de vague. Rien n’est écrit sur la machine. La vitesse de ligne ne change pas.' },
     ],
+
+    industryTitle: 'Industries in this wedge',
+    industryBody:
+      'We start with electronics components, 3C assembly, and PCBA including DIP appearance. Other verticals are later pack slots, not algorithms claimed today.',
+    industries: [
+      {
+        title: 'Electronic components',
+        body: 'Odd-form and through-hole stations where a full-line machine is hard to justify.',
+      },
+      {
+        title: '3C assembly',
+        body: 'High-mix benches after reflow or wave, with evidence and a review desk.',
+      },
+      {
+        title: 'PCBA & DIP appearance',
+        body: 'Surface-visible solder and insert presence or polarity proxies. Not 3D height, not SPI paste volume.',
+      },
+    ],
+    hardwareTitle: 'Your cameras, our standard',
+    hardwareBody:
+      'Bring cameras that meet the published matrix, or follow the camera-module reference. Lights, fixtures, and the station PC are yours. We do not ship a conveyor AOI cabinet.',
+    rejectTitle: 'Sorting without owning the pusher',
+    rejectBody:
+      'PASS and NG leave as Webhook or MQTT. Your PLC or servo runs the reject pulse. The line-reject supplement pack is not the core product and never writes coils from the API.',
     recommendedLabel: 'Commencer ici',
     pocNote: 'Avant un passage payant, collectez pendant deux semaines. Collecte et revue humaine seulement, sur vos cartes, pour voir si la personne et l’algorithme concordent. Aucune promesse sur ce qui sera trouvé, et aucun pourcentage. Les étapes sont sur la page des tarifs.',
   },

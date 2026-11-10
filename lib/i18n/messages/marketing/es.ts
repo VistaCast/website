@@ -49,6 +49,30 @@ const marketingEs: MarketingMessages = {
       { title: 'Rendimiento de primera pasada y Pareto', body: 'Vea la mezcla de defectos y el rendimiento de primera pasada por turno. Las tasas salen de sus registros. Esta página no publica una tasa.' },
       { title: 'Parámetros de proceso, en paralelo', body: 'Alinea los ajustes de ola o reflow con los cambios de defecto en el tiempo y solo sugiere qué revisar, como precalentado, velocidad de cadena o altura de ola. No se escribe en la máquina. No se cambia la velocidad de línea.' },
     ],
+
+    industryTitle: 'Industries in this wedge',
+    industryBody:
+      'We start with electronics components, 3C assembly, and PCBA including DIP appearance. Other verticals are later pack slots, not algorithms claimed today.',
+    industries: [
+      {
+        title: 'Electronic components',
+        body: 'Odd-form and through-hole stations where a full-line machine is hard to justify.',
+      },
+      {
+        title: '3C assembly',
+        body: 'High-mix benches after reflow or wave, with evidence and a review desk.',
+      },
+      {
+        title: 'PCBA & DIP appearance',
+        body: 'Surface-visible solder and insert presence or polarity proxies. Not 3D height, not SPI paste volume.',
+      },
+    ],
+    hardwareTitle: 'Your cameras, our standard',
+    hardwareBody:
+      'Bring cameras that meet the published matrix, or follow the camera-module reference. Lights, fixtures, and the station PC are yours. We do not ship a conveyor AOI cabinet.',
+    rejectTitle: 'Sorting without owning the pusher',
+    rejectBody:
+      'PASS and NG leave as Webhook or MQTT. Your PLC or servo runs the reject pulse. The line-reject supplement pack is not the core product and never writes coils from the API.',
     recommendedLabel: 'Empezar aquí',
     pocNote: 'Antes del paso a pago, recoja durante dos semanas. Solo recogida y revisión humana, con sus placas, para ver si la persona y el algoritmo coinciden. Sin prometer cuánto se encontrará y sin un porcentaje. Los pasos están en la página de precios.',
   },

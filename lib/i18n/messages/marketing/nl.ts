@@ -47,6 +47,30 @@ const marketingNl: MarketingMessages = {
       { title: 'First-pass yield en een Pareto', body: 'Zie de mix van fouten en de first-pass yield per ploeg. De cijfers komen uit uw eigen registraties. Deze pagina publiceert geen percentage.' },
       { title: 'Procesinstellingen ernaast', body: 'Zet golf- of reflow-instellingen naast foutveranderingen in de tijd, en suggereer alleen wat te controleren, zoals voorverwarmen, kettingsnelheid of golfhoogte. Er wordt niets naar de machine geschreven. De lijnsnelheid verandert niet.' },
     ],
+
+    industryTitle: 'Industries in this wedge',
+    industryBody:
+      'We start with electronics components, 3C assembly, and PCBA including DIP appearance. Other verticals are later pack slots, not algorithms claimed today.',
+    industries: [
+      {
+        title: 'Electronic components',
+        body: 'Odd-form and through-hole stations where a full-line machine is hard to justify.',
+      },
+      {
+        title: '3C assembly',
+        body: 'High-mix benches after reflow or wave, with evidence and a review desk.',
+      },
+      {
+        title: 'PCBA & DIP appearance',
+        body: 'Surface-visible solder and insert presence or polarity proxies. Not 3D height, not SPI paste volume.',
+      },
+    ],
+    hardwareTitle: 'Your cameras, our standard',
+    hardwareBody:
+      'Bring cameras that meet the published matrix, or follow the camera-module reference. Lights, fixtures, and the station PC are yours. We do not ship a conveyor AOI cabinet.',
+    rejectTitle: 'Sorting without owning the pusher',
+    rejectBody:
+      'PASS and NG leave as Webhook or MQTT. Your PLC or servo runs the reject pulse. The line-reject supplement pack is not the core product and never writes coils from the API.',
     recommendedLabel: 'Begin hier',
     pocNote: 'Vóór een betaalde uitrol verzamelt u twee weken. Alleen verzamelen en menselijke beoordeling, op uw eigen printen, om te zien of mens en algoritme overeenkomen. Geen belofte hoeveel er gevonden wordt, en geen percentage. De stappen staan op de prijspagina.',
   },

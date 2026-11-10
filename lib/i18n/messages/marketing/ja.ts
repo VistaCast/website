@@ -81,6 +81,30 @@ const marketingJa: MarketingMessages = {
       { title: '直行率と欠陥パレート', body: 'シフトごとに不良の内訳と直行を見ます。比率はあなたの記録からです。このページに対外の比率は書きません。' },
       { title: '工程条件の突き合わせ', body: 'はんだ槽やリフローの条件を、時間で不良の変化と並べ、予熱、チェーン速度、波の高さなど見るべき項目だけ提示します。設備には書き込まず、ライン速度も変えません。' },
     ],
+
+    industryTitle: 'Industries in this wedge',
+    industryBody:
+      'We start with electronics components, 3C assembly, and PCBA including DIP appearance. Other verticals are later pack slots, not algorithms claimed today.',
+    industries: [
+      {
+        title: 'Electronic components',
+        body: 'Odd-form and through-hole stations where a full-line machine is hard to justify.',
+      },
+      {
+        title: '3C assembly',
+        body: 'High-mix benches after reflow or wave, with evidence and a review desk.',
+      },
+      {
+        title: 'PCBA & DIP appearance',
+        body: 'Surface-visible solder and insert presence or polarity proxies. Not 3D height, not SPI paste volume.',
+      },
+    ],
+    hardwareTitle: 'Your cameras, our standard',
+    hardwareBody:
+      'Bring cameras that meet the published matrix, or follow the camera-module reference. Lights, fixtures, and the station PC are yours. We do not ship a conveyor AOI cabinet.',
+    rejectTitle: 'Sorting without owning the pusher',
+    rejectBody:
+      'PASS and NG leave as Webhook or MQTT. Your PLC or servo runs the reject pulse. The line-reject supplement pack is not the core product and never writes coils from the API.',
     recommendedLabel: '最初はここ',
     pocNote: '本契約の前に 2 週間集めます。集めることと人の再判定だけです。あなたの基板で、人とアルゴリズムが一致するかを見ます。どれだけ見つかるかは約束せず、割合も書きません。手順は料金のページにあります。',
   },

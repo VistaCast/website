@@ -47,6 +47,30 @@ const marketingPt: MarketingMessages = {
       { title: 'Rendimento de primeira passagem e Pareto', body: 'Veja a mistura de defeitos e o rendimento de primeira passagem por turno. As taxas vêm dos seus registros. Esta página não publica uma taxa.' },
       { title: 'Parâmetros de processo, lado a lado', body: 'Alinha ajustes de onda ou reflow com a mudança de defeitos no tempo e só sugere o que checar, como pré-aquecimento, velocidade da corrente ou altura da onda. Nada é escrito na máquina. A velocidade da linha não muda.' },
     ],
+
+    industryTitle: 'Industries in this wedge',
+    industryBody:
+      'We start with electronics components, 3C assembly, and PCBA including DIP appearance. Other verticals are later pack slots, not algorithms claimed today.',
+    industries: [
+      {
+        title: 'Electronic components',
+        body: 'Odd-form and through-hole stations where a full-line machine is hard to justify.',
+      },
+      {
+        title: '3C assembly',
+        body: 'High-mix benches after reflow or wave, with evidence and a review desk.',
+      },
+      {
+        title: 'PCBA & DIP appearance',
+        body: 'Surface-visible solder and insert presence or polarity proxies. Not 3D height, not SPI paste volume.',
+      },
+    ],
+    hardwareTitle: 'Your cameras, our standard',
+    hardwareBody:
+      'Bring cameras that meet the published matrix, or follow the camera-module reference. Lights, fixtures, and the station PC are yours. We do not ship a conveyor AOI cabinet.',
+    rejectTitle: 'Sorting without owning the pusher',
+    rejectBody:
+      'PASS and NG leave as Webhook or MQTT. Your PLC or servo runs the reject pulse. The line-reject supplement pack is not the core product and never writes coils from the API.',
     recommendedLabel: 'Comece aqui',
     pocNote: 'Antes do contrato pago, colete por duas semanas. Só coleta e revisão humana, nas suas placas, para ver se a pessoa e o algoritmo concordam. Sem promessa de quanto será encontrado e sem porcentagem. Os passos estão na página de preços.',
   },
